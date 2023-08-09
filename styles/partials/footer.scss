@@ -1,0 +1,15 @@
+@import 'partials/variables';
+@import 'partials/mixins';
+
+.foot{
+
+    &__icon{
+        display:flex;
+        flex-direction: row;
+        margin:2rem;
+
+        &__img{
+            width: 2rem;
+        }
+    }
+}
