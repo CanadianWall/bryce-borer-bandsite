@@ -1,2 +1,24 @@
-@import 'partials/variables';
-@import 'partials/mixins';
+@use './variables' as *;
+
+.main-header {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary-dark;
+
+
+    &__title {
+        margin: 0 auto;
+        
+    }
+
+    &__links{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    &--text {
+        color: white;
+    }
+
+}

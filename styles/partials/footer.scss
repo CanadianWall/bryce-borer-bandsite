@@ -1,5 +1,4 @@
-@import 'partials/variables';
-@import 'partials/mixins';
+@use './variables' as *;
 
 .foot{
 

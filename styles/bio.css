@@ -1,1 +1,38 @@
-/*# sourceMappingURL=bio.css.map */
+@font-face {
+  font-family: "AvenirNext";
+  src: url("../assets/font/AvenirNextLTPro-Regular.otf") format("opentype"), url("../assets/font/Alternative_files/AvenirNextLTPro.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AvenirNext-bold";
+  src: url("../assets/font/AvenirNextLTPro-Bold.otf") format("opentype"), url("../assets/font/Alternative_files/AvenirNextLTPro.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AvenirNext-demi";
+  src: url("../assets/font/AvenirNextLTPro-Demi.otf") format("opentype"), url("../assets/font/Alternative_files/AvenirNextLTPro.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+.hero {
+  background-size: contain;
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 20rem;
+  background-image: url("../assets/images/hero-bio.jpg");
+}
+.hero__title {
+  color: white;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  background-color: #E1E1E1;
+}
+.gallery__img {
+  width: 90vw;
+  margin: 5vw;
+}/*# sourceMappingURL=bio.css.map */

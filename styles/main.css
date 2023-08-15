@@ -1,135 +1,133 @@
+@font-face {
+  font-family: "AvenirNext";
+  src: url("../assets/font/AvenirNextLTPro-Regular.otf") format("opentype"), url("../assets/font/Alternative_files/AvenirNextLTPro.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AvenirNext-bold";
+  src: url("../assets/font/AvenirNextLTPro-Bold.otf") format("opentype"), url("../assets/font/Alternative_files/AvenirNextLTPro.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AvenirNext-demi";
+  src: url("../assets/font/AvenirNextLTPro-Demi.otf") format("opentype"), url("../assets/font/Alternative_files/AvenirNextLTPro.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+.main-header {
+  display: flex;
+  flex-direction: column;
+  background-color: #323232;
+}
+.main-header__title {
+  margin: 0 auto;
+}
+.main-header__links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.main-header--text {
+  color: white;
+}
+
+h1 {
+  font-family: "AvenirNext";
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
 @media (min-width: 768px) {
   h1 {
     font-size: 3.75rem;
     line-height: 4.25rem;
-    font-weight: 700;
   }
-  h2 {
-    font-size: 2.25rem;
-    line-height: 2.75rem;
-    font-weight: 700;
-  }
-  h3 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    font-weight: 600;
-  }
-  p {
-    font-size: 0.875rem;
-    line-height: 1.375rem;
-    font-weight: 400;
-  }
-  h4 {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: 400;
-  }
-  h5 {
-    font-size: 0.75rem;
-    line-height: 1.25rem;
-    font-weight: 700;
-  }
-}
-h1 {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 700;
 }
 
 h2 {
+  font-family: "AvenirNext";
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 700;
 }
-
-h3 {
-  font-size: 0.875rem;
-  line-height: 1.375rem;
-  font-weight: 600;
-}
-
-p {
-  font-size: 0.813rem;
-  line-height: 1.125rem;
-  font-weight: 400;
-}
-
-h4 {
-  font-size: 0.813rem;
-  line-height: 1.125rem;
-  font-weight: 400;
-}
-
-h5 {
-  font-size: 0.625rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-}
-
 @media (min-width: 768px) {
-  h1 {
-    font-size: 3.75rem;
-    line-height: 4.25rem;
-    font-weight: 700;
-  }
   h2 {
     font-size: 2.25rem;
     line-height: 2.75rem;
-    font-weight: 700;
   }
-  h3 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    font-weight: 600;
-  }
-  p {
-    font-size: 0.875rem;
-    line-height: 1.375rem;
-    font-weight: 400;
-  }
-  h4 {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: 400;
-  }
-  h5 {
-    font-size: 0.75rem;
-    line-height: 1.25rem;
-    font-weight: 700;
-  }
-}
-h1 {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 700;
-}
-
-h2 {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 700;
 }
 
 h3 {
+  font-family: "AvenirNext";
   font-size: 0.875rem;
   line-height: 1.375rem;
   font-weight: 600;
 }
+@media (min-width: 768px) {
+  h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
 
 p {
+  font-family: "AvenirNext";
   font-size: 0.813rem;
   line-height: 1.125rem;
   font-weight: 400;
+}
+@media (min-width: 768px) {
+  p {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
 }
 
 h4 {
+  font-family: "AvenirNext";
   font-size: 0.813rem;
   line-height: 1.125rem;
   font-weight: 400;
 }
+@media (min-width: 768px) {
+  h4 {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
 
 h5 {
+  font-family: "AvenirNext";
   font-size: 0.625rem;
   line-height: 1.25rem;
   font-weight: 700;
+}
+@media (min-width: 768px) {
+  h5 {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+  }
+}
+
+.hero {
+  background-size: contain;
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 20rem;
+  background-image: url("../assets/images/hero-bio.jpg");
+}
+.hero__title {
+  color: white;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  background-color: #E1E1E1;
+}
+.gallery__img {
+  width: 90vw;
+  margin: 5vw;
 }/*# sourceMappingURL=main.css.map */

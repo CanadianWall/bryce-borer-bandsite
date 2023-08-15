@@ -1,2 +1,35 @@
-@import 'partials/variables';
-@import 'partials/mixins';
+@use './partials' as *;
+
+
+// <section class="hero">
+// <div>
+//     <img class="hero__image" src="./assets/images/hero-bio.jpg">
+//     <h2 class="hero__title">The Bees Knees</h2>
+
+.hero {
+    background-size: contain;
+    background-size: 100% 100%;
+    width: 100vw;
+    height: 20rem;
+    background-image: url("../assets/images/hero-bio.jpg");
+    
+
+    &__image {}
+
+    &__title {
+        color: white;
+    }
+}
+
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    background-color: $secondary-inactive;
+
+    &__img {
+        width: 90vw;
+        margin: 5vw;
+    }
+
+}

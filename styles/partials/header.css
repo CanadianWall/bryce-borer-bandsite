@@ -1,1 +1,16 @@
-/*# sourceMappingURL=header.css.map */
+.main-header {
+  display: flex;
+  flex-direction: column;
+  background-color: #323232;
+}
+.main-header__title {
+  margin: 0 auto;
+}
+.main-header__links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.main-header--text {
+  color: white;
+}/*# sourceMappingURL=header.css.map */
