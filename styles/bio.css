@@ -17,22 +17,36 @@
   font-style: normal;
 }
 .hero {
-  background-size: contain;
-  background-size: 100% 100%;
-  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 20rem;
   background-image: url("../assets/images/hero-bio.jpg");
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .hero__title {
+  margin: 16px;
   color: white;
+}
+
+.bio {
+  margin: 0 16px;
+}
+.bio__title {
+  margin-left: 0;
 }
 
 .gallery {
   display: flex;
   flex-direction: column;
-  background-color: #E1E1E1;
+  background-color: #FAFAFA;
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
 }
 .gallery__img {
-  width: 90vw;
-  margin: 5vw;
+  margin: 0 16px 16px 16px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }/*# sourceMappingURL=bio.css.map */

@@ -1,23 +1,25 @@
 @use './partials' as *;
 
-
-// <section class="hero">
-// <div>
-//     <img class="hero__image" src="./assets/images/hero-bio.jpg">
-//     <h2 class="hero__title">The Bees Knees</h2>
-
 .hero {
-    background-size: contain;
-    background-size: 100% 100%;
-    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 20rem;
     background-image: url("../assets/images/hero-bio.jpg");
-    
-
-    &__image {}
+    display:flex;
+    flex-direction: row;
+    align-items: center;
 
     &__title {
+        margin:16px;
         color: white;
+    }
+}
+
+.bio{
+    margin:  0 16px;
+
+    &__title{
+        margin-left:0;
     }
 }
 
@@ -25,11 +27,13 @@
 .gallery {
     display: flex;
     flex-direction: column;
-    background-color: $secondary-inactive;
+    background-color: $secondary-light;
+    object-fit: contain;
+    width: 100%;
 
     &__img {
-        width: 90vw;
-        margin: 5vw;
+        margin: 0 16px 16px 16px;
+        object-fit: contain;
     }
 
 }

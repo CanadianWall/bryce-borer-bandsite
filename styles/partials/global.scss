@@ -1,12 +1,17 @@
 @use './variables' as *;
 @use './mixins' as *;
 
+html, body{
+    margin: 0;
+padding: 0;
+}
 
 h1 {
     font-family: 'AvenirNext';
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 700;
+    margin: 24px 16px 16px 16px;
 
         @include tablet {
         font-size: 3.75rem;
@@ -20,6 +25,7 @@ h2 {
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 700;
+
 
     @include tablet {
         font-size: 2.25rem;
@@ -75,4 +81,5 @@ h5 {
         line-height: 1.25rem;
     }
 }
+
 

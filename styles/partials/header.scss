@@ -7,8 +7,11 @@
 
 
     &__title {
-        margin: 0 auto;
-        
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 16px 0 0 0;
+        color: white;
     }
 
     &__links{
@@ -19,6 +22,8 @@
 
     &--text {
         color: white;
+        margin: 8px 0 16px 0;
+        
     }
 
 }

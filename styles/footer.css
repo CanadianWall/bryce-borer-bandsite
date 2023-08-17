@@ -1,0 +1,26 @@
+.foot {
+  background-color: #323232;
+  color: #FFFFFF;
+}
+.foot--title {
+  padding: 24px 16px 0px 16px;
+  margin: 0;
+}
+.foot__icon {
+  display: flex;
+  flex-direction: row;
+}
+.foot__icon__img {
+  height: 1.4rem;
+  margin: 16px;
+}
+.foot__text {
+  margin: 0 16px;
+}
+.foot__text--bot-title {
+  margin: 48px 0 8px 0;
+}
+.foot__text--bot-margin {
+  margin: 0;
+  padding: 0 0 16px 0;
+}/*# sourceMappingURL=footer.css.map */

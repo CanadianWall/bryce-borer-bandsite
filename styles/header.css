@@ -1,0 +1,21 @@
+.main-header {
+  display: flex;
+  flex-direction: column;
+  background-color: #323232;
+}
+.main-header__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 16px 0 0 0;
+  color: white;
+}
+.main-header__links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.main-header--text {
+  color: white;
+  margin: 8px 0 16px 0;
+}/*# sourceMappingURL=header.css.map */

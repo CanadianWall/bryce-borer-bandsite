@@ -1,14 +1,35 @@
 @use './variables' as *;
 
-.foot{
+.foot {
+    background-color: $primary-dark;
+    color: $primary-light;
 
-    &__icon{
-        display:flex;
+    &--title {
+        padding: 24px 16px 0px 16px;
+        margin: 0;
+    }
+
+    &__icon {
+        display: flex;
         flex-direction: row;
-        margin:2rem;
 
-        &__img{
-            width: 2rem;
+        &__img {
+            height: 1.4rem;
+            margin: 16px;
         }
     }
+
+    &__text{
+        margin: 0 16px;
+
+            &--bot-title{
+                margin: 48px 0 8px 0;
+            }
+        &--bot-margin{
+            margin:0;
+            padding:0 0 16px 0;
+        }
+
+    }
 }
+
