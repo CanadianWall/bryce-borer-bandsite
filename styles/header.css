@@ -3,19 +3,62 @@
   flex-direction: column;
   background-color: #323232;
 }
+@media (min-width: 768px) {
+  .main-header {
+    flex-direction: row;
+    padding: 0 64px;
+  }
+}
 .main-header__title {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 16px 0 0 0;
-  color: white;
+  color: #FFFFFF;
+}
+.main-header__item {
+  padding: 1rem 0;
+}
+@media (min-width: 768px) {
+  .main-header__item__active {
+    border-bottom: solid #FFFFFF 5px;
+  }
 }
 .main-header__links {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+}
+.main-header__links--wrapper {
+  width: 50vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+@media (min-width: 768px) {
+  .main-header__links--wrapper {
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 0 64px;
+  }
+}
+.main-header__active {
+  border-bottom: solid #FFFFFF 3px;
+}
+@media (min-width: 768px) {
+  .main-header__active {
+    border: none;
+  }
 }
 .main-header--text {
-  color: white;
+  color: #FFFFFF;
   margin: 8px 0 16px 0;
+}
+
+.main-header__links:hover, .main-header__title:hover {
+  background-color: #000000;
+  box-shadow: 0px 0px 8px 2px #FFFFFF;
+  transition: 1s;
 }/*# sourceMappingURL=header.css.map */

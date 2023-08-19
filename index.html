@@ -14,12 +14,16 @@
             <h1 class="main-header__title">BANDSITE</h1>
         </a>
         <nav class="main-header__links">
-            <a class="main-header__item">
-                <h3 class="main-header--text">Biography</h3>
-            </a>
-            <a class="main-header__item">
-                <h3 class="main-header--text">Shows</h3>
-            </a>
+            <div class="main-header__links--wrapper main-header__active">
+                <a class="main-header__item main-header__item__active">
+                    <h3 class="main-header--text">Biography</h3>
+                </a>
+            </div>
+            <div class="main-header__links--wrapper">
+                <a class="main-header__item">
+                    <h3 class="main-header--text">Shows</h3>
+                </a>
+            </div>
         </nav>
 
     </header>
@@ -29,7 +33,9 @@
     <main>
         <section class="bio">
             <h1 class="bio__title">About the Musicians</h1>
-
+            <div class="bio__img">
+                <img class="bio__img--style" src="./assets/images/band.jpg">
+            </div>
             <div class="bio__article">
                 <p class="">“We push each other to be the best. It’s not
                     uncommon for one of us to say ‘this needs
@@ -71,23 +77,23 @@
         <section class="gallery">
             <h1>Photo Gallery</h1>
 
-                <img class="gallery__img" src="./assets/images/Photo-gallery-1.jpg">
+            <img class="gallery__img" src="./assets/images/Photo-gallery-1.jpg">
 
-                <img class="gallery__img" src="./assets/images/Photo-gallery-2.jpg">
+            <img class="gallery__img" src="./assets/images/Photo-gallery-2.jpg">
 
-                <img class="gallery__img" src="./assets/images/Photo-gallery-3.jpg">
+            <img class="gallery__img" src="./assets/images/Photo-gallery-3.jpg">
 
-                <img class="gallery__img" src="./assets/images/Photo-gallery-4.jpg">
+            <img class="gallery__img" src="./assets/images/Photo-gallery-4.jpg">
 
-                <img class="gallery__img" src="./assets/images/Photo-gallery-5.jpg">
+            <img class="gallery__img" src="./assets/images/Photo-gallery-5.jpg">
 
-                <img class="gallery__img" src="./assets/images/Photo-gallery-6.jpg">
+            <img class="gallery__img" src="./assets/images/Photo-gallery-6.jpg">
 
-                <img class="gallery__img" src="./assets/images/Photo-gallery-7.jpg">
+            <img class="gallery__img" src="./assets/images/Photo-gallery-7.jpg">
 
-                <img class="gallery__img" src="./assets/images/Photo-gallery-8.jpg">
+            <img class="gallery__img" src="./assets/images/Photo-gallery-8.jpg">
 
-                <img class="gallery__img" src="./assets/images/Photo-gallery-9.jpg">
+            <img class="gallery__img" src="./assets/images/Photo-gallery-9.jpg">
 
         </section>
     </main>
@@ -99,28 +105,34 @@
             <img class="foot__icon__img" src="./assets/icons/SVG/Icon-twitter.svg">
         </div>
         <section class="foot__text">
-        <h3>Cam Adams<br>The Bees Knees Management</h3>
+            <h3>Cam Adams<br>The Bees Knees Management</h3>
 
-        <h4>503 Broadway Penthouse,<br>New York, NY 10012, USA</h4>
+            <h4>503 Broadway Penthouse,<br>New York, NY 10012, USA</h4>
 
-        <h4>info@thebeesknees.com</h4>
+            <a href="info@thebeesknees.com">
+                <h4>info@thebeesknees.com</h4>
+            </a>
 
-        <h3>Pearl Gregg<br>Limitless Artist Group</h3>
+            <h3>Pearl Gregg<br>Limitless Artist Group</h3>
 
-        <h4>Booking Agent for<br>US / South America / Japan</h4>
+            <h4>Booking Agent for<br>US / South America / Japan</h4>
 
-        <h4>pearl.gregg@limitlessag.com</h4>
+            <a href="pearl.gregg@limitlessag.com">
+                <h4>pearl.gregg@limitlessag.com</h4>
+            </a>
 
-        <h3>Carson Whyte<br>ARCH Entertainment</h3>
+            <h3>Carson Whyte<br>ARCH Entertainment</h3>
 
-        <h4>Booking Agent for<br>UK / EU / AU</h4>
+            <h4>Booking Agent for<br>UK / EU / AU</h4>
 
-        <h4>cwhyte@archentertainment.com</h4>
+            <a href="cwhyte@archentertainment.com">
+                <h4>cwhyte@archentertainment.com</h4>
+            </a>
 
-        <h1 class="foot__text--bot-title">BANDSITE</h1>
+            <h1 class="foot__text--bot-title">BANDSITE</h1>
 
-        <h4 class="foot__text--bot-margin">Copyright The Bees Knees © 2021 All Rights Reserved</h4>
-    </section>
+            <h4 class="foot__text--bot-margin">Copyright The Bees Knees © 2021 All Rights Reserved</h4>
+        </section>
     </footer>
 </body>
 

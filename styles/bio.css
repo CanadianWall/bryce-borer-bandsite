@@ -36,6 +36,18 @@
 .bio__title {
   margin-left: 0;
 }
+.bio__img {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.bio__img--style {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+}
 
 .gallery {
   display: flex;
@@ -49,4 +61,10 @@
   margin: 0 16px 16px 16px;
   -o-object-fit: contain;
      object-fit: contain;
+  filter: grayscale(1);
+}
+
+.gallery__img:hover {
+  filter: grayscale(0);
+  transition: 1s;
 }/*# sourceMappingURL=bio.css.map */

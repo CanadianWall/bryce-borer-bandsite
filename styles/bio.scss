@@ -3,7 +3,7 @@
 .hero {
     background-size: cover;
     background-repeat: no-repeat;
-    height: 20rem;
+    height:20rem;
     background-image: url("../assets/images/hero-bio.jpg");
     display:flex;
     flex-direction: row;
@@ -21,6 +21,19 @@
     &__title{
         margin-left:0;
     }
+    &__img{
+        display:flex;
+    flex-direction: row;
+    align-items: center;
+    object-fit: contain;
+
+
+        &--style{
+            object-fit: contain;
+            width: 100%;
+        }
+        
+    }
 }
 
 
@@ -34,6 +47,11 @@
     &__img {
         margin: 0 16px 16px 16px;
         object-fit: contain;
+        filter: grayscale(1);
     }
 
 }
+.gallery__img:hover{
+    filter: grayscale(0);
+    transition: 1s;
+  }
