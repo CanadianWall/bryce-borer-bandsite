@@ -198,17 +198,26 @@ a {
 }
 
 .hero {
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 20rem;
-  background-image: url("../assets/images/hero-bio.jpg");
+  position: relative;
+  width: 100%;
+  margin: 0;
+}
+.hero__wrapper {
+  position: relative;
+  z-index: 1;
+  height: 70%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: flex;
-  flex-direction: row;
-  align-items: center;
 }
 .hero__title {
   margin: 16px;
   color: white;
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  transform: translate(0%, -50%);
 }
 
 .bio {
@@ -229,7 +238,15 @@ a {
      object-fit: contain;
   width: 100%;
 }
-
+.bio__article {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .bio__article {
+    flex-direction: row;
+  }
+}
 .gallery {
   display: flex;
   flex-direction: column;
@@ -238,11 +255,23 @@ a {
      object-fit: contain;
   width: 100%;
 }
+@media (min-width: 768px) {
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
 .gallery__img {
   margin: 0 16px 16px 16px;
   -o-object-fit: contain;
      object-fit: contain;
   filter: grayscale(1);
+}
+@media (min-width: 768px) {
+  .gallery__img {
+    flex: 0 0 33.333333%;
+    width: 25%;
+  }
 }
 
 .gallery__img:hover {
