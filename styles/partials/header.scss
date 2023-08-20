@@ -18,13 +18,16 @@
         margin: 16px 0 0 0;
         color: $primary-light;
 
+        @include tablet {
+            font-weight: 500;
+        }
 
     }
     &__item{
-        padding:1rem 0;
+        // padding:1rem 0;
             &__active{
                 @include tablet {
-                    border-bottom: solid $primary-light 5px;
+                    border-bottom: solid $primary-light 3px;
                 }
             }    
         
@@ -41,11 +44,11 @@
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
-
+            height: 3rem;
             @include tablet {
                 width: fit-content;
                 padding: 0 64px;
-    
+                height: 4rem;
             }
         }
     }
@@ -61,8 +64,10 @@
 
     &--text {
         color: $primary-light;
-        margin: 8px 0 16px 0;
-        
+        margin: 16px 0 16px 0;
+        @include tablet {
+            font-size:24px;
+        }
     }
 
 }

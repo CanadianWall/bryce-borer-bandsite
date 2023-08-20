@@ -87,7 +87,7 @@
 }
 @media (min-width: 768px) {
   .gallery {
-    padding: 36px;
+    padding: 0px;
   }
   .gallery__list {
     display: flex;
@@ -101,16 +101,18 @@
     list-style: none;
     flex: 1 1 30%;
     margin: 12px;
+    padding: 0;
     -o-object-fit: contain;
        object-fit: contain;
     width: 100%;
   }
 }
 .gallery__img {
+  margin: 0 16px 16px 16px;
   -o-object-fit: contain;
      object-fit: contain;
   filter: grayscale(1);
-  width: 100%;
+  width: 95%;
 }
 .gallery__img:hover {
   filter: grayscale(0);

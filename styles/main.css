@@ -129,12 +129,14 @@ ul {
   margin: 16px 0 0 0;
   color: #FFFFFF;
 }
-.main-header__item {
-  padding: 1rem 0;
+@media (min-width: 768px) {
+  .main-header__title {
+    font-weight: 500;
+  }
 }
 @media (min-width: 768px) {
   .main-header__item__active {
-    border-bottom: solid #FFFFFF 5px;
+    border-bottom: solid #FFFFFF 3px;
   }
 }
 .main-header__links {
@@ -149,12 +151,14 @@ ul {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  height: 3rem;
 }
 @media (min-width: 768px) {
   .main-header__links--wrapper {
     width: -moz-fit-content;
     width: fit-content;
     padding: 0 64px;
+    height: 4rem;
   }
 }
 .main-header__active {
@@ -167,7 +171,12 @@ ul {
 }
 .main-header--text {
   color: #FFFFFF;
-  margin: 8px 0 16px 0;
+  margin: 16px 0 16px 0;
+}
+@media (min-width: 768px) {
+  .main-header--text {
+    font-size: 24px;
+  }
 }
 
 .main-header__links:hover, .main-header__title:hover {
@@ -180,23 +189,57 @@ ul {
   background-color: #323232;
   color: #FFFFFF;
 }
-.foot--title {
+.foot__banner {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .foot__banner {
+    flex-direction: row;
+  }
+}
+.foot__banner--title {
   padding: 24px 16px 0px 16px;
   margin: 0;
-}
-.foot__icon {
   display: flex;
   flex-direction: row;
 }
-.foot__icon__img {
+@media (min-width: 768px) {
+  .foot__banner--title {
+    align-items: flex-end;
+  }
+}
+.foot__banner__icon {
+  display: flex;
+  flex-direction: row;
+}
+@media (min-width: 768px) {
+  .foot__banner__icon {
+    align-items: flex-end;
+  }
+}
+.foot__banner__icon__img {
   height: 1.4rem;
   margin: 16px;
+}
+.foot__banner__band-title {
+  display: none;
+}
+@media (min-width: 768px) {
+  .foot__banner__band-title {
+    display: flex;
+  }
 }
 .foot__text {
   margin: 0 16px;
 }
 .foot__text--bot-title {
   margin: 48px 0 8px 0;
+}
+@media (min-width: 768px) {
+  .foot__text--bot-title {
+    display: none;
+  }
 }
 .foot__text--bot-margin {
   margin: 0;
@@ -274,7 +317,7 @@ ul {
 }
 @media (min-width: 768px) {
   .gallery {
-    padding: 36px;
+    padding: 0px;
   }
   .gallery__list {
     display: flex;
@@ -288,16 +331,18 @@ ul {
     list-style: none;
     flex: 1 1 30%;
     margin: 12px;
+    padding: 0;
     -o-object-fit: contain;
        object-fit: contain;
     width: 100%;
   }
 }
 .gallery__img {
+  margin: 0 16px 16px 16px;
   -o-object-fit: contain;
      object-fit: contain;
   filter: grayscale(1);
-  width: 100%;
+  width: 95%;
 }
 .gallery__img:hover {
   filter: grayscale(0);

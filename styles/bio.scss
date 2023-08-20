@@ -55,7 +55,6 @@
             flex-direction: row;
         }
 
-        &--text {}
     }
 
     @include tablet {
@@ -71,15 +70,15 @@
     background-color: $secondary-light;
     object-fit: contain;
     width: 100%;
+
     
     @include tablet {
-        padding: 36px;
-        
+        padding: 0px;
+
         &__list {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
-            // margin:16px;
             object-fit: contain;
             width:100%;
 
@@ -87,7 +86,7 @@
                 list-style: none;
                 flex: 1 1 30%;
                 margin:12px;
-                // flex: 0 0 30%;
+                padding: 0;
                 object-fit: contain;
                 width:100%;
                 
@@ -96,12 +95,10 @@
     }
 
     &__img {
-        // margin: 0 16px 16px 16px;
-        // padding: 16px;
-        // margin:16px;
+        margin: 0 16px 16px 16px;
         object-fit: contain;
         filter: grayscale(1);
-        width: 100%;
+        width: 95%;
 
         @include tablet {
             

@@ -1,35 +1,62 @@
 @use './variables' as *;
+@use './mixins' as *;
 
 .foot {
     background-color: $primary-dark;
     color: $primary-light;
 
-    &--title {
-        padding: 24px 16px 0px 16px;
-        margin: 0;
-    }
+    &__banner {
+        display:flex;
+        flex-direction: column;
+        @include tablet {
+            flex-direction: row;
 
-    &__icon {
-        display: flex;
+        }
+        &--title {
+            padding: 24px 16px 0px 16px;
+            margin: 0;
+            display:flex;
         flex-direction: row;
+        @include tablet {
+            align-items: flex-end;
+        }
+        }
 
-        &__img {
-            height: 1.4rem;
-            margin: 16px;
+        &__icon {
+            display: flex;
+            flex-direction: row;
+            @include tablet {
+                align-items: flex-end;
+            }
+            &__img {
+                height: 1.4rem;
+                margin: 16px;
+            }
+        }
+
+        &__band-title {
+            display: none;
+            @include tablet {
+                display: flex;
+            }
         }
     }
 
-    &__text{
+    &__text {
         margin: 0 16px;
 
-            &--bot-title{
-                margin: 48px 0 8px 0;
+        &--bot-title {
+            margin: 48px 0 8px 0;
+
+            @include tablet {
+                display: none;
             }
-        &--bot-margin{
-            margin:0;
-            padding:0 0 16px 0;
+        }
+
+        &--bot-margin {
+            margin: 0;
+            padding: 0 0 16px 0;
         }
 
     }
 }
-
