@@ -24,7 +24,7 @@
 
     }
     &__item{
-        // padding:1rem 0;
+
             &__active{
                 @include tablet {
                     border-bottom: solid $primary-light 3px;
