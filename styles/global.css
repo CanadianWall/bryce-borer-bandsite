@@ -85,4 +85,10 @@ h5 {
 a {
   text-decoration: none;
   color: #FFFFFF;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }/*# sourceMappingURL=global.css.map */
