@@ -8,7 +8,6 @@ h1 {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 700;
-  margin: 24px 16px 16px 16px;
 }
 @media (min-width: 768px) {
   h1 {
@@ -80,23 +79,4 @@ h5 {
     font-size: 0.75rem;
     line-height: 1.25rem;
   }
-}
-
-a {
-  text-decoration: none;
-  color: #FFFFFF;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.bold {
-  font-family: "AvenirNext-bold";
-}
-
-.demi {
-  font-family: "AvenirNext-demi";
 }/*# sourceMappingURL=global.css.map */

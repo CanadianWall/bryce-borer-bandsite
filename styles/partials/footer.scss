@@ -1,15 +1,115 @@
-@import 'partials/variables';
-@import 'partials/mixins';
+@use './variables' as *;
+@use './mixins' as *;
 
-.foot{
+.foot {
+    background-color: $primary-dark;
+    color: $primary-light;
+    padding-top: $tablet-gutter;
 
-    &__icon{
-        display:flex;
-        flex-direction: row;
-        margin:2rem;
+    &__banner {
+        display: flex;
+        flex-direction: column;
+        margin: 0 $mobile-margin;
+        @include tablet {
+            margin: 0 $tablet-margin;
 
-        &__img{
-            width: 2rem;
+        }
+        &--left {
+            display: flex;
+            flex-direction: column;
+
+            @include tablet {
+                flex-direction: row;
+
+            }
+
+        }
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        &--title {
+            margin: 0;
+            margin-right: $tablet-gutter;
+            display: flex;
+            flex-direction: row;
+
+            @include tablet {
+                align-items: flex-end;
+            }
+        }
+
+        &__icon {
+            display: flex;
+            flex-direction: row;
+            margin-left:-$mobile-margin;
+            @include tablet {
+                align-items: flex-end;
+                margin-left:0;
+            }
+
+            &__img {
+                height: 1.4rem;
+                margin: 16px;
+                @include tablet {
+                    margin: 12px;
+                }
+            }
+        }
+
+        &__band-title {
+            display: none;
+
+            @include tablet {
+                display: flex;
+                margin: 0 36px;
+                align-items: flex-end;
+            }
         }
     }
+
+    &__text {
+        margin: 0 $mobile-margin;
+        @include tablet {
+            margin: 0 $tablet-margin;
+        &__list{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            object-fit: contain;
+            // width:100%;
+            &__item{
+                list-style: none;
+                flex: 1 1 30%;
+                // margin:12px;
+                padding: 0;
+                object-fit: contain;
+            }
+        }
+    }
+
+
+
+        &--bot-title {
+            margin: 48px 0 8px 0;
+
+            @include tablet {
+                display: none;
+            }
+        }
+
+        &--bot-margin {
+            margin: 0;
+            padding: 0 0 16px 0;
+        }
+
+    }
+}
+
+.foot__banner__icon__img:hover {
+    background-color: $secondary-dark;
+    box-shadow: 0px 0px 8px 2px $primary-light;
+    transition: 1s;
 }

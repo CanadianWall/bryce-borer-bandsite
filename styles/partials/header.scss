@@ -1,2 +1,78 @@
-@import 'partials/variables';
-@import 'partials/mixins';
+@use './variables' as *;
+@use './mixins' as *;
+
+.main-header {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary-dark;
+
+    @include tablet {
+        flex-direction: row;
+        padding: 0 $desktop-column;
+    }
+
+    &__title {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        margin: $mobile-margin 0 0 0;
+        color: $primary-light;
+
+        @include tablet {
+            font-weight: 500;
+        }
+
+    }
+    &__item{
+
+            &__active{
+                @include tablet {
+                    border-bottom: solid $primary-light 3px;
+                }
+            }    
+        
+    }
+    &__links{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        align-content: center;
+
+        &--wrapper{
+            width:50vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            height: 3rem;
+            @include tablet {
+                width: fit-content;
+                padding: 0 $desktop-column;
+                height: 4rem;
+            }
+        }
+    }
+
+    &__active{
+        border-bottom: solid $primary-light 3px;
+        
+        @include tablet {
+            border:none;
+        }
+        
+    }
+
+    &--text {
+        color: $primary-light;
+        margin: $mobile-margin 0;
+        @include tablet {
+            font-size:24px;
+        }
+    }
+
+}
+.main-header__links:hover, .main-header__title:hover {
+    background-color: $secondary-dark;
+    box-shadow: 0px 0px 8px 2px $primary-light;
+  transition: 1s; 
+}

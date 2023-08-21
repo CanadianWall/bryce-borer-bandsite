@@ -1,1 +1,8 @@
-/*# sourceMappingURL=footer.css.map */
+.foot__icon {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem;
+}
+.foot__icon__img {
+  width: 2rem;
+}/*# sourceMappingURL=footer.css.map */
