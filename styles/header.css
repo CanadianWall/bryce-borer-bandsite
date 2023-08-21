@@ -6,7 +6,7 @@
 @media (min-width: 768px) {
   .main-header {
     flex-direction: row;
-    padding: 0 64px;
+    padding: 0 63px;
   }
 }
 .main-header__title {
@@ -44,7 +44,7 @@
   .main-header__links--wrapper {
     width: -moz-fit-content;
     width: fit-content;
-    padding: 0 64px;
+    padding: 0 63px;
     height: 4rem;
   }
 }
@@ -58,7 +58,7 @@
 }
 .main-header--text {
   color: #FFFFFF;
-  margin: 16px 0 16px 0;
+  margin: 16px 0;
 }
 @media (min-width: 768px) {
   .main-header--text {

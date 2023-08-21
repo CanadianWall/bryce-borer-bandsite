@@ -7,8 +7,19 @@ $secondary-dark: #000000;
 $secondary-inactive: #E1E1E1;
 $secondary-light: #FAFAFA;
 
+$mobile-margin: 16px;
+$mobile-column: auto;
+
 $tablet-width: 768px;
-$desktop-width: 1280px;
+$tablet-margin: 36px;
+$tablet-gutter: 24px;
+$tablet-column: auto;
+
+$desktop-width: 1200px;
+$desktop-margin: 124px;
+$desktop-gutter: 24px;
+$desktop-column: 63px;
+
 
 $regular-font: "AvenirNext";
 $bold-font:"AvenirNext-bold";

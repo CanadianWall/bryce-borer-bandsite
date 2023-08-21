@@ -16,23 +16,38 @@
     }
 
     &__title {
-        margin: 16px;
+        margin: $mobile-margin;
         color: white;
         position: absolute;
         z-index: 3;
         top: 50%;
         transform: translate(0%, -50%);
+
         @include tablet {
-            margin: 36px;
+            margin: 0 $tablet-margin;
+        }
+        @include desktop {
+            margin: 0 $desktop-margin;
         }
     }
 }
 
 .bio {
-    margin: 0 16px;
+    padding: 0 $mobile-margin;
 
     &__title {
         margin-left: 0;
+    }
+
+    @include tablet {
+        &__margin {
+            margin: 0 $tablet-margin;
+        }
+    }
+    @include desktop {
+        &__margin {
+            margin: 0 $desktop-margin;
+        }
     }
 
     &__img {
@@ -43,22 +58,46 @@
 
         &--style {
             object-fit: contain;
-            width: 100%;
+            width: calc(100% - 32px);
+
+            @include tablet {
+                width: calc(100% - ($tablet-margin*2));
+                margin: 0 auto;
+            }
+
+            @include desktop {
+                width: calc(100% - $desktop-margin);
+                margin: 0 auto;
+            }
         }
     }
 
     &__article {
         display: flex;
         flex-direction: column;
-
+        
         @include tablet {
             flex-direction: row;
+            margin: $tablet-gutter;
+            &--text {
+                margin: 0 calc($tablet-gutter/2);
+            }
+        }
+        @include desktop {
+            flex-direction: row;
+            margin: $desktop-gutter calc($desktop-gutter*2);
+            &--text {
+                margin: 0 calc($desktop-gutter/2);
+            }
         }
 
     }
 
     @include tablet {
-        margin: 0 36px;
+        padding: 0 $tablet-margin;
+    }
+    @include desktop {
+        padding: 0 $tablet-desktop;
     }
 }
 
@@ -71,37 +110,43 @@
     object-fit: contain;
     width: 100%;
 
+    &__title {
+        margin-left: $mobile-margin;
+
+        @include tablet {
+            margin-left: $tablet-margin;
+        }
+        @include desktop {
+            margin-left: $desktop-margin;
+        }
+    }
     
+
     @include tablet {
-        padding: 0px;
 
         &__list {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
-            object-fit: contain;
-            width:100%;
+            width: calc(100% - ($tablet-margin*2));
+            margin: 0 $tablet-margin;
 
             &__item {
                 list-style: none;
                 flex: 1 1 30%;
-                margin:12px;
-                padding: 0;
-                object-fit: contain;
-                width:100%;
-                
             }
         }
     }
 
     &__img {
-        margin: 0 16px 16px 16px;
+        margin: $mobile-margin;
+        margin-top: 0;
         object-fit: contain;
         filter: grayscale(1);
         width: 95%;
 
         @include tablet {
-            
+            margin: 0;
         }
     }
 

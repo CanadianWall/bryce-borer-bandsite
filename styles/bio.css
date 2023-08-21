@@ -40,15 +40,30 @@
 }
 @media (min-width: 768px) {
   .hero__title {
-    margin: 36px;
+    margin: 0 36px;
+  }
+}
+@media (min-width: 1200px) {
+  .hero__title {
+    margin: 0 124px;
   }
 }
 
 .bio {
-  margin: 0 16px;
+  padding: 0 16px;
 }
 .bio__title {
   margin-left: 0;
+}
+@media (min-width: 768px) {
+  .bio__margin {
+    margin: 0 36px;
+  }
+}
+@media (min-width: 1200px) {
+  .bio__margin {
+    margin: 0 63px;
+  }
 }
 .bio__img {
   display: flex;
@@ -60,7 +75,19 @@
 .bio__img--style {
   -o-object-fit: contain;
      object-fit: contain;
-  width: 100%;
+  width: calc(100% - 32px);
+}
+@media (min-width: 768px) {
+  .bio__img--style {
+    width: calc(100% - 72px);
+    margin: 0 auto;
+  }
+}
+@media (min-width: 1200px) {
+  .bio__img--style {
+    width: calc(100% - 120px);
+    margin: 0 auto;
+  }
 }
 .bio__article {
   display: flex;
@@ -69,11 +96,24 @@
 @media (min-width: 768px) {
   .bio__article {
     flex-direction: row;
+    margin: 24px;
+  }
+  .bio__article--text {
+    margin: 0 12px;
+  }
+}
+@media (min-width: 1200px) {
+  .bio__article {
+    flex-direction: row;
+    margin: 24px 48px;
+  }
+  .bio__article--text {
+    margin: 0 12px;
   }
 }
 @media (min-width: 768px) {
   .bio {
-    margin: 0 36px;
+    padding: 0 36px;
   }
 }
 
@@ -85,35 +125,46 @@
      object-fit: contain;
   width: 100%;
 }
+.gallery__title {
+  margin-left: 16px;
+}
 @media (min-width: 768px) {
-  .gallery {
-    padding: 0px;
+  .gallery__title {
+    margin-left: 36px;
   }
+}
+@media (min-width: 1200px) {
+  .gallery__title {
+    margin-left: 124px;
+  }
+}
+@media (min-width: 768px) {
   .gallery__list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    -o-object-fit: contain;
-       object-fit: contain;
-    width: 100%;
+    width: calc(100% - 72px);
+    margin: 0 36px;
   }
   .gallery__list__item {
     list-style: none;
     flex: 1 1 30%;
-    margin: 12px;
-    padding: 0;
-    -o-object-fit: contain;
-       object-fit: contain;
-    width: 100%;
   }
 }
 .gallery__img {
-  margin: 0 16px 16px 16px;
+  margin: 16px;
+  margin-top: 0;
   -o-object-fit: contain;
      object-fit: contain;
   filter: grayscale(1);
   width: 95%;
 }
+@media (min-width: 768px) {
+  .gallery__img {
+    margin: 0;
+  }
+}
+
 .gallery__img:hover {
   filter: grayscale(0);
   transition: 1s;
