@@ -1,0 +1,45 @@
+.hero-show {
+  position: relative;
+  width: 100%;
+  margin: 0;
+}
+.hero-show__wrapper {
+  position: relative;
+  z-index: 1;
+  height: 70%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: flex;
+}
+.hero-show__album {
+  margin: 16px;
+  color: white;
+  position: absolute;
+  z-index: 3;
+  top: 10%;
+}
+.hero-show__title {
+  margin: 16px;
+  color: white;
+  position: absolute;
+  z-index: 3;
+  top: 30%;
+  transform: translate(0%, -50%);
+}
+@media (min-width: 768px) {
+  .hero-show__title {
+    margin: 0 36px;
+  }
+}
+@media (min-width: 1200px) {
+  .hero-show__title {
+    margin: 0 124px;
+  }
+}
+.hero-show__song {
+  margin: 16px;
+  position: absolute;
+  z-index: 3;
+  top: 45%;
+}/*# sourceMappingURL=shows.css.map */

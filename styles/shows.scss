@@ -1,0 +1,51 @@
+@use './partials/variables' as *;
+@use './partials/mixins' as *;
+
+
+.hero-show {
+
+    position: relative;
+    width: 100%;
+    margin: 0;
+
+    &__wrapper {
+        position: relative;
+        z-index: 1;
+        height: 70%;
+        width: 100%;
+        object-fit: cover;
+        display: flex;
+    }
+
+    &__album{
+        margin: $mobile-margin;
+        color: white;
+
+        position: absolute;
+        z-index: 3;
+        top: 10%;
+        // transform: translate(0%, -50%);
+    }
+    &__title {
+        margin: $mobile-margin;
+        color: white;
+
+        position: absolute;
+        z-index: 3;
+        top: 30%;
+        transform: translate(0%, -50%);
+
+        @include tablet {
+            margin: 0 $tablet-margin;
+        }
+        @include desktop {
+            margin: 0 $desktop-margin;
+        }
+    }
+    &__song{
+        margin: $mobile-margin;
+        position: absolute;
+        z-index: 3;
+        top: 45%;
+    }
+}
