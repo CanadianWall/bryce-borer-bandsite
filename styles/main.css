@@ -501,6 +501,7 @@ ul {
 .comments--wrapper {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
 
 .comments {
@@ -521,7 +522,7 @@ ul {
   width: 96%;
 }
 
-.avatar {
+.avatar, .avatar__posted {
   background-color: #E1E1E1;
   border-radius: 50%;
   height: 36px;
@@ -530,19 +531,30 @@ ul {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.avatar__posted {
+  margin: 16px;
+}
 
 .comment-card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 88%;
 }
 .comment-card__top {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+  justify-content: space-between;
+}
+.comment-card--posted {
+  margin-top: 8px;
 }
 
-input, textarea {
+input,
+textarea {
   font-family: "AvenirNext";
   font-size: 0.875rem;
   line-height: 1.375rem;
@@ -562,7 +574,8 @@ input::-moz-placeholder, textarea::-moz-placeholder {
   color: #000000;
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
   font-family: "AvenirNext";
   font-size: 0.875rem;
   line-height: 1.375rem;
