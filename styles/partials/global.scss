@@ -119,7 +119,17 @@ ul {
     height: 40px;
     display: flex;
     justify-content: center;
+
+    &--shows{
+        @extend .button;
+        width:calc(100% - 32px);
+        margin-bottom: $mobile-margin;
+    }
 }
+.button:hover{
+    background-color: $secondary-dark;
+}
+
 
 .card-divider{
     background-color: $secondary-inactive;

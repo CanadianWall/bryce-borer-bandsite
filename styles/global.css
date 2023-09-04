@@ -103,7 +103,7 @@ ul {
   font-family: "AvenirNext-demi";
 }
 
-.button {
+.button, .button--shows {
   border: none;
   cursor: pointer;
   padding: 0.5rem;
@@ -117,6 +117,14 @@ ul {
   height: 40px;
   display: flex;
   justify-content: center;
+}
+.button--shows {
+  width: calc(100% - 32px);
+  margin-bottom: 16px;
+}
+
+.button:hover, .button--shows:hover {
+  background-color: #000000;
 }
 
 .card-divider {

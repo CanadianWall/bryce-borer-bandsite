@@ -127,5 +127,5 @@ function handlePostSubmit(event) {
 
 const myForm = document.getElementById('comment-section');
 myForm.addEventListener("submit", handlePostSubmit);
-console.log(comments)
+
 displayComment();

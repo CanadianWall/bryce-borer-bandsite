@@ -63,7 +63,7 @@ function createShowCard(show) {
 
     const buttonEl = document.createElement('button');
     buttonEl.innerText = 'BUY TICKETS';
-    buttonEl.classList.add('button');
+    buttonEl.classList.add('button--shows');
 
     const dividerEl = document.createElement('div');
     dividerEl.classList.add('card-divider');

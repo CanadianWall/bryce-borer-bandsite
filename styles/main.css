@@ -121,7 +121,7 @@ ul {
   font-family: "AvenirNext-demi";
 }
 
-.button {
+.button, .button--shows {
   border: none;
   cursor: pointer;
   padding: 0.5rem;
@@ -135,6 +135,14 @@ ul {
   height: 40px;
   display: flex;
   justify-content: center;
+}
+.button--shows {
+  width: calc(100% - 32px);
+  margin-bottom: 16px;
+}
+
+.button:hover, .button--shows:hover {
+  background-color: #000000;
 }
 
 .card-divider {
@@ -645,9 +653,17 @@ label {
 .shows--heading {
   font-family: "AvenirNext";
   color: #AFAFAF;
-  margin: 16px;
-  margin-bottom: 8px;
+  margin: 0 16px 8px 16px;
+  padding-top: 16px;
 }
 .shows__item {
-  margin: 8px 16px 16px 16px;
+  margin: 8px 16px 0 16px;
+}
+
+.show {
+  background-color: #FFFFFF;
+}
+
+.show:hover {
+  background-color: #FAFAFA;
 }/*# sourceMappingURL=main.css.map */

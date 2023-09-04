@@ -18,7 +18,7 @@
         display: flex;
     }
 
-    &__album{
+    &__album {
         margin: $mobile-margin;
         color: white;
 
@@ -27,6 +27,7 @@
         top: 10%;
         // transform: translate(0%, -50%);
     }
+
     &__title {
         margin: $mobile-margin;
         color: white;
@@ -39,11 +40,13 @@
         @include tablet {
             margin: 0 $tablet-margin;
         }
+
         @include desktop {
             margin: 0 $desktop-margin;
         }
     }
-    &__song{
+
+    &__song {
         margin: $mobile-margin;
         position: absolute;
         z-index: 3;
@@ -51,16 +54,27 @@
     }
 }
 
-.shows{
+.shows {
 
-    &--heading{
+    &--heading {
         font-family: 'AvenirNext';
-    color: $primary-inactive;
-    margin: $mobile-margin;
-    margin-bottom: 8px;
+        color: $primary-inactive;
+        margin: 0 $mobile-margin 8px $mobile-margin;
+        padding-top: $mobile-margin;
     }
 
-    &__item{
-        margin: 8px $mobile-margin $mobile-margin $mobile-margin;
+    &__item {
+        margin: 8px $mobile-margin 0 $mobile-margin;
     }
 }
+
+.show {
+    background-color: $primary-light;
+}
+
+.show:hover {
+    background-color: $secondary-light;
+}
+
+
+
