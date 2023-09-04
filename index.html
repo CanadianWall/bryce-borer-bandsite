@@ -112,21 +112,26 @@
                 </li>
             </ul>
         </section>
-        <section class="comments">
-            <h2>Join the Conversation</h2>
-            <form id="comment-section" class="comment-section" novalidate>
+        <h2 class="comments-title">Join the Conversation</h2>
+        <section class="comments--wrapper">
+            
+            <div><img  class="avatar" src="./assets/images/Mohan-muruge.jpg"></div>
+            <div class="comments">
+                <form id="comment-section" class="comment-section" novalidate>
 
-                <!-- Name input -->
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" placeholder="Enter your name" required>
+                    <!-- Name input -->
+                    <label for="name">Name</label>
+                    <input class="comments__input" type="text" name="name" id="name" placeholder="Enter your name" required>
 
-                <!-- Textarea -->
-                <label for="comments">Comment</label>
-                <textarea class="comments__text-area" name="comments" id="comments" placeholder="Add a new comment"></textarea>
+                    <!-- Textarea -->
+                    <label for="comments">Comment</label>
+                    <textarea class="comments__text-area" name="comments" id="comments"
+                        placeholder="Add a new comment"></textarea>
 
-                <button type="submit" class="comment-section__button">COMMENT</button>
-            </form>
-            <div class="comments__divider"></div>
+                    <button type="submit" class="button">COMMENT</button>
+
+                </form>
+            </div>
 
         </section>
 
@@ -134,7 +139,6 @@
             <div id="posted--comment">
                 <!-- Posted comments here -->
             </div>
-            <div class="comments__divider"></div>
         </section>
     </main>
 

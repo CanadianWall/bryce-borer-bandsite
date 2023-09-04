@@ -7,6 +7,7 @@
     position: relative;
     width: 100%;
     margin: 0;
+    filter: grayscale(0.5);
 
     &__wrapper {
         position: relative;
@@ -47,5 +48,19 @@
         position: absolute;
         z-index: 3;
         top: 45%;
+    }
+}
+
+.shows{
+
+    &--heading{
+        font-family: 'AvenirNext';
+    color: $primary-inactive;
+    margin: $mobile-margin;
+    margin-bottom: 8px;
+    }
+
+    &__item{
+        margin: 8px $mobile-margin $mobile-margin $mobile-margin;
     }
 }

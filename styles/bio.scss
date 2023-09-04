@@ -7,6 +7,7 @@
     position: relative;
     width: 100%;
     margin: 0;
+    filter: grayscale(0.5);
 
     &__wrapper {
         position: relative;
@@ -162,42 +163,60 @@
 
 
 // This is all the new stuff
-
-
-.posted {
-    flex-grow: 1;
+.comments-title{
+    margin-left: $mobile-margin;
 }
-
 .comment-section {
-    margin: 1rem;
-
-    &__button {
-        border: none;
-        cursor: pointer;
-        padding: 0.5rem;
-        background-color: $primary-dark;
-        color: $primary-light;
-        border-radius: 5px;
-        font-size: inherit;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-        margin-top: 1rem;
-    }
+    margin: 0 1rem;
+    border-bottom: 1px solid $secondary-inactive;
 }
-
+.comments--wrapper{
+    display:flex;
+    flex-direction: row;
+}
 .comments {
     background-color: $primary-light;
-    border-bottom: 2px solid $primary-inactive;
     display: flex;
     flex-direction: column;
-    // align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    // padding: 0 1rem;
+    width: 88%;
+    box-sizing: border-box;
+
+    &__input{
+        height:36px;
+        width: 96%;
+    }
 
     &__text-area{
         resize: none;
         height: 100px;
-        width: 350px;
+        width: 96%;
     }
+}
+
+.avatar{
+    background-color: $secondary-inactive;
+    border-radius: 50%;
+    height: $tablet-margin;
+    width: $tablet-margin;
+    margin: $tablet-margin 0 $mobile-margin $mobile-margin;
+    object-fit: cover;
+
+}
+
+.comment-card{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+
+    &__top{
+        display:flex;
+        flex-direction: column;
+    }
+
 }
 
 input, textarea{
@@ -209,6 +228,7 @@ input, textarea{
     border: 1px solid $primary-inactive;
     display: block;
     margin: 0.5rem 0;
+    padding: 5px 10px;
 }
 
 input::placeholder, textarea::placeholder {

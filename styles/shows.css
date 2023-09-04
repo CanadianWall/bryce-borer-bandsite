@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   margin: 0;
+  filter: grayscale(0.5);
 }
 .hero-show__wrapper {
   position: relative;
@@ -42,4 +43,14 @@
   position: absolute;
   z-index: 3;
   top: 45%;
+}
+
+.shows--heading {
+  font-family: "AvenirNext";
+  color: #AFAFAF;
+  margin: 16px;
+  margin-bottom: 8px;
+}
+.shows__item {
+  margin: 8px 16px 16px 16px;
 }/*# sourceMappingURL=shows.css.map */
