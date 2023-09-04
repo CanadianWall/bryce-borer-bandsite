@@ -1,9 +1,7 @@
 @use './partials/variables' as *;
 @use './partials/mixins' as *;
 
-
 .hero {
-
     position: relative;
     width: 100%;
     margin: 0;
@@ -21,7 +19,6 @@
     &__title {
         margin: $mobile-margin;
         color: white;
-
         position: absolute;
         z-index: 3;
         top: 50%;

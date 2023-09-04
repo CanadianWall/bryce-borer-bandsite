@@ -9,7 +9,6 @@ body {
 }
 
 
-
 h1 {
     font-family: 'AvenirNext';
     font-size: 1.5rem;
@@ -18,6 +17,7 @@ h1 {
     margin: 24px 16px 16px 16px;
 
     @include tablet {
+
         font-size: 3.75rem;
         line-height: 4.25rem;
     }
