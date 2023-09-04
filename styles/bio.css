@@ -3,7 +3,6 @@
   width: 100%;
   margin: 0;
   filter: grayscale(0.5);
-
 }
 .hero__wrapper {
   position: relative;
@@ -47,7 +46,6 @@
 @media (min-width: 1200px) {
   .bio__margin {
     margin: 0 124px;
-
   }
 }
 .bio__img {
@@ -101,13 +99,11 @@
     padding: 0 36px;
   }
 }
-
 @media (min-width: 1200px) {
   .bio {
     padding: 0 124px;
   }
 }
-
 
 .gallery {
   display: flex;
@@ -160,7 +156,6 @@
 .gallery__img:hover {
   filter: grayscale(0);
   transition: 1s;
-
 }
 
 .comments-title {
