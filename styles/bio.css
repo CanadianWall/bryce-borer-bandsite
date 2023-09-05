@@ -271,6 +271,10 @@
   }
 }
 
+.button:hover {
+  background-color: #000000;
+}
+
 input,
 textarea {
   font-family: "AvenirNext";

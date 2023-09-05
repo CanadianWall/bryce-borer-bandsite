@@ -121,10 +121,6 @@ ul {
   font-family: "AvenirNext-demi";
 }
 
-.button:hover {
-  background-color: #000000;
-}
-
 .card-divider {
   background-color: #E1E1E1;
   height: 1px;
@@ -590,6 +586,10 @@ ul {
   }
 }
 
+.button:hover {
+  background-color: #000000;
+}
+
 input,
 textarea {
   font-family: "AvenirNext";
@@ -713,11 +713,17 @@ label {
   }
 }
 
+.shows {
+  pointer-events: none;
+}
 @media (min-width: 1200px) {
   .shows {
     position: relative;
     height: 630px;
   }
+}
+.shows__title {
+  pointer-events: none;
 }
 @media (min-width: 1200px) {
   .shows__title {
@@ -725,6 +731,9 @@ label {
     top: 5%;
     left: 10%;
   }
+}
+.shows__wrapper {
+  pointer-events: none;
 }
 @media (min-width: 1200px) {
   .shows__wrapper {
@@ -735,6 +744,7 @@ label {
   }
 }
 .shows--heading {
+  pointer-events: none;
   font-family: "AvenirNext";
   color: #AFAFAF;
   margin: 0 16px 8px 16px;
@@ -742,6 +752,7 @@ label {
 }
 .shows__item {
   margin: 0 16px 16px 16px;
+  pointer-events: none;
 }
 @media (min-width: 768px) {
   .shows__item {
@@ -749,12 +760,16 @@ label {
     margin: 8px 16px 0 16px;
   }
 }
+.shows__posted {
+  pointer-events: none;
+}
 
 .show {
   background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
   position: relative;
+  pointer-events: auto;
 }
 @media (min-width: 768px) {
   .show {
@@ -765,6 +780,7 @@ label {
 .show__groups {
   display: flex;
   flex-direction: column;
+  pointer-events: none;
 }
 @media (min-width: 768px) {
   .show__groups {
@@ -788,10 +804,6 @@ label {
   background-color: #FAFAFA;
 }
 
-.showDarker {
-  background-color: green;
-}
-
 .button--shows {
   border: none;
   cursor: pointer;
@@ -807,10 +819,15 @@ label {
   justify-content: center;
   width: calc(100% - 32px);
   margin-bottom: 16px;
+  pointer-events: auto;
 }
 @media (min-width: 768px) {
   .button--shows {
     width: 12rem;
     margin: 24px 0;
   }
+}
+
+.button--shows:hover {
+  background-color: #000000;
 }/*# sourceMappingURL=main.css.map */

@@ -1,4 +1,4 @@
-let activeId;
+let btnId;
 
 const shows = [
     {
@@ -51,9 +51,6 @@ function createShowCard(show, i) {
     dateEl.classList.add('demi');
     dateEl.classList.add('shows__item');
 
-
-
-
     const venueGroup = document.createElement('div');
     venueGroup.classList.add('show__groups');
 
@@ -64,9 +61,6 @@ function createShowCard(show, i) {
     const venueEl = document.createElement('h4');
     venueEl.innerText = show.venue;
     venueEl.classList.add('shows__item');
-
-
-
 
     const locationGroup = document.createElement('div');
     locationGroup.classList.add('show__groups');
@@ -79,18 +73,16 @@ function createShowCard(show, i) {
     locationEl.innerText = show.location;
     locationEl.classList.add('shows__item');
 
-
-
-
+    buttonId = i+10;
     const buttonEl = document.createElement('button');
     buttonEl.innerText = 'BUY TICKETS';
     buttonEl.classList.add('button--shows');
+    buttonEl.setAttribute('id', buttonId);
 
     if (screen.width < 768 || ((screen.width >= 768) && i === 5)) {
         dateGroup.appendChild(dateHeading);
         venueGroup.appendChild(venueHeading);
         locationGroup.appendChild(locationHeading);
-        console.log('article' + i);
     }
 
     dateGroup.appendChild(dateEl);
@@ -106,7 +98,7 @@ function createShowCard(show, i) {
 }
 
 function displayShow() {
-    const myShowsEl = document.querySelector("#shows--posted");
+    const myShowsEl = document.querySelector("#showsId");
 
     // Clear the comments div first
     myShowsEl.innerHTML = "";
@@ -118,9 +110,38 @@ function displayShow() {
     }
 
 }
+
+// this reverts the color to white on all rows, except darkens the "selected" row
+function selectedShow(activeShow){
+    console.log("active " + activeShow)
+    
+    //this statement converts the button id to the article (background) id
+    if (activeShow >=10){
+        activeShow -=10;
+        }
+
+     for(i = 0; i<=5; i++){
+    document.getElementById(i).style.backgroundColor = "#FFFFFF";
+     }
+    document.getElementById(activeShow).style.backgroundColor = "#E1E1E1";
+}
+    
+
+
 displayShow();
 
+// Shows will be rerendered when the screen size changes
 window.addEventListener("resize", function (event) {
-    console.log(document.body.clientWidth + ' wide by ' + document.body.clientHeight + ' high');
-    displayShow();
+    location.reload();
 })
+
+//this listens for mouse clicks on the "selected" row on the show table
+for (i = 0; i<=5; i++){ 
+    document.getElementById(i).addEventListener('click', function(event){
+            selectedShow(event.target.id);
+    })
+    document.getElementById(i+10).addEventListener('click', function(event){
+            selectedShow(event.target.id);
+    })
+}
+

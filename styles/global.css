@@ -103,10 +103,6 @@ ul {
   font-family: "AvenirNext-demi";
 }
 
-.button:hover {
-  background-color: #000000;
-}
-
 .card-divider {
   background-color: #E1E1E1;
   height: 1px;

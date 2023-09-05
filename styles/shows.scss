@@ -17,7 +17,7 @@
         object-fit: cover;
         display: flex;
 
-        @include tablet{
+        @include tablet {
             height: 600px;
         }
     }
@@ -86,12 +86,14 @@
 
 .shows {
 
+     pointer-events: none;
     @include desktop {
         position: relative;
         height: calc($desktop-column*10);
     }
 
     &__title {
+        pointer-events: none;
         @include desktop {
             position: absolute;
             top: 5%;
@@ -100,6 +102,7 @@
     }
 
     &__wrapper {
+        pointer-events: none;
         @include desktop {
             width: 60%;
             position: absolute;
@@ -110,6 +113,7 @@
 
 
     &--heading {
+        pointer-events: none;
         font-family: 'AvenirNext';
         color: $primary-inactive;
         margin: 0 $mobile-margin 8px $mobile-margin;
@@ -122,11 +126,15 @@
 
     &__item {
         margin: 0 $mobile-margin $mobile-margin $mobile-margin;
-
+        pointer-events: none;
         @include tablet {
             flex-direction: row;
             margin: 8px $mobile-margin 0 $mobile-margin;
         }
+    }
+
+    &__posted {
+        pointer-events: none;
     }
 }
 
@@ -136,7 +144,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-
+    pointer-events: auto;
 
     @include tablet {
         flex-direction: row;
@@ -149,6 +157,7 @@
         display: flex;
         flex-direction: column;
 
+        pointer-events: none;
         @include tablet {
             flex-direction: column;
             align-items: left;
@@ -171,11 +180,6 @@
     background-color: $secondary-light;
 }
 
-.showDarker {
-    // background-color: $secondary-inactive;
-    background-color: green;
-}
-
 .button--shows {
     border: none;
     cursor: pointer;
@@ -191,9 +195,14 @@
     justify-content: center;
     width: calc(100% - 32px);
     margin-bottom: $mobile-margin;
+    pointer-events: auto;
 
     @include tablet {
         width: 12rem;
         margin: $tablet-gutter 0;
     }
+}
+
+.button--shows:hover {
+    background-color: $secondary-dark;
 }
