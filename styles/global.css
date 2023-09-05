@@ -103,27 +103,7 @@ ul {
   font-family: "AvenirNext-demi";
 }
 
-.button, .button--shows {
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  background-color: #323232;
-  color: #FFFFFF;
-  border-radius: 4px;
-  font-size: 1.5rem;
-  align-items: center;
-  margin: 16px auto;
-  width: 100%;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-}
-.button--shows {
-  width: calc(100% - 32px);
-  margin-bottom: 16px;
-}
-
-.button:hover, .button--shows:hover {
+.button:hover {
   background-color: #000000;
 }
 
