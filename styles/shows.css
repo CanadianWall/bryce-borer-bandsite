@@ -20,6 +20,17 @@
   z-index: 3;
   top: 10%;
 }
+@media (min-width: 768px) {
+  .hero-show__album {
+    margin: 0 36px;
+  }
+}
+@media (min-width: 1200px) {
+  .hero-show__album {
+    margin: 0 124px;
+    top: 30%;
+  }
+}
 .hero-show__title {
   margin: 16px;
   color: white;
@@ -27,15 +38,19 @@
   z-index: 3;
   top: 30%;
   transform: translate(0%, -50%);
+  width: 50%;
 }
 @media (min-width: 768px) {
   .hero-show__title {
     margin: 0 36px;
+    width: 60%;
   }
 }
 @media (min-width: 1200px) {
   .hero-show__title {
     margin: 0 124px;
+    top: 45%;
+    width: 45%;
   }
 }
 .hero-show__song {
@@ -43,6 +58,20 @@
   position: absolute;
   z-index: 3;
   top: 45%;
+}
+@media (min-width: 768px) {
+  .hero-show__song {
+    width: 50%;
+    top: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  .hero-show__song {
+    width: 30%;
+    top: 37%;
+    left: 60%;
+    height: 140px;
+  }
 }
 
 .shows--heading {
@@ -52,11 +81,47 @@
   padding-top: 16px;
 }
 .shows__item {
-  margin: 8px 16px 0 16px;
+  margin: 0 16px 16px 16px;
+}
+@media (min-width: 768px) {
+  .shows__item {
+    flex-direction: row;
+    margin: 8px 16px 0 16px;
+  }
 }
 
 .show {
   background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .show {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+.show__groups {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .show__groups {
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+  }
+}
+
+.show:after {
+  content: "";
+  background: #E1E1E1;
+  position: absolute;
+  bottom: 0;
+  left: 1%;
+  height: 1px;
+  width: 98%;
 }
 
 .show:hover {
@@ -77,10 +142,15 @@
   font-size: 1.5rem;
   align-items: center;
   margin: 16px auto;
-  width: 100%;
   height: 40px;
   display: flex;
   justify-content: center;
   width: calc(100% - 32px);
   margin-bottom: 16px;
+}
+@media (min-width: 768px) {
+  .button--shows {
+    width: 12rem;
+    margin: 24px 0;
+  }
 }/*# sourceMappingURL=shows.css.map */

@@ -39,47 +39,68 @@ function createShowCard(show, i) {
     cardEl.classList.add('show');
     cardEl.setAttribute('id', i);
 
+    const dateGroup = document.createElement('div');
+    dateGroup.classList.add('show__groups');
 
-    const dateHeading = document.createElement('h3'); // is a node
+    const dateHeading = document.createElement('h4'); // is a node
     dateHeading.innerHTML = 'DATE';
     dateHeading.classList.add('shows--heading');
 
-    const dateEl = document.createElement('h3');
+    const dateEl = document.createElement('h4');
     dateEl.innerText = show.date;
-    dateEl.classList.add('bold');
+    dateEl.classList.add('demi');
     dateEl.classList.add('shows__item');
 
-    const venueHeading = document.createElement('h3'); // is a node
+
+
+
+    const venueGroup = document.createElement('div');
+    venueGroup.classList.add('show__groups');
+
+    const venueHeading = document.createElement('h4'); // is a node
     venueHeading.innerHTML = 'VENUE';
     venueHeading.classList.add('shows--heading');
 
-    const venueEl = document.createElement('h3');
+    const venueEl = document.createElement('h4');
     venueEl.innerText = show.venue;
     venueEl.classList.add('shows__item');
 
-    const locationHeading = document.createElement('h3'); // is a node
+
+
+
+    const locationGroup = document.createElement('div');
+    locationGroup.classList.add('show__groups');
+
+    const locationHeading = document.createElement('h4'); // is a node
     locationHeading.innerHTML = 'LOCATION';
     locationHeading.classList.add('shows--heading');
 
-    const locationEl = document.createElement('h3');
+    const locationEl = document.createElement('h4');
     locationEl.innerText = show.location;
     locationEl.classList.add('shows__item');
+
+
+
 
     const buttonEl = document.createElement('button');
     buttonEl.innerText = 'BUY TICKETS';
     buttonEl.classList.add('button--shows');
 
-    const dividerEl = document.createElement('div');
-    dividerEl.classList.add('card-divider');
+    if (screen.width < 768 || ((screen.width >= 768) && i === 5)) {
+        dateGroup.appendChild(dateHeading);
+        venueGroup.appendChild(venueHeading);
+        locationGroup.appendChild(locationHeading);
+        console.log('article' + i);
+    }
 
-    cardEl.appendChild(dateHeading);
-    cardEl.appendChild(dateEl);
-    cardEl.appendChild(venueHeading);
-    cardEl.appendChild(venueEl);
-    cardEl.appendChild(locationHeading);
-    cardEl.appendChild(locationEl);
+    dateGroup.appendChild(dateEl);
+    venueGroup.appendChild(venueEl);
+    locationGroup.appendChild(locationEl);
+
+    cardEl.appendChild(dateGroup);
+    cardEl.appendChild(venueGroup);
+    cardEl.appendChild(locationGroup);
     cardEl.appendChild(buttonEl);
-    cardEl.appendChild(dividerEl);
 
     return cardEl;
 }
@@ -98,3 +119,8 @@ function displayShow() {
 
 }
 displayShow();
+
+window.addEventListener("resize", function (event) {
+    console.log(document.body.clientWidth + ' wide by ' + document.body.clientHeight + ' high');
+    displayShow();
+})
