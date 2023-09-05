@@ -22,7 +22,7 @@ const comments = [
 
 
 function createCommentCard(comment) {
-    
+
     // The wrapper contains each comment card
     const wrapperEl = document.createElement('div');
     wrapperEl.classList.add('comments--wrapper');
@@ -32,8 +32,8 @@ function createCommentCard(comment) {
     const avatarEl = document.createElement('img');
 
     // gives new comments an avatar picture
-    if (comment.avatar !== 1){
-        avatarEl.src="./assets/images/Mohan-muruge.jpg";
+    if (comment.avatar !== 1) {
+        avatarEl.src = "./assets/images/Mohan-muruge.jpg";
     }
 
     avatarEl.classList.add('avatar__posted');
@@ -46,10 +46,10 @@ function createCommentCard(comment) {
     // Makes the name and date have a space between them, and placed above the comment text
     const cardTopEl = document.createElement('div');
     cardTopEl.classList.add('comment-card__top');
-    
+
     const dateEl = document.createElement('h4')
 
-    if (typeof comment.date === 'undefined'){
+    if (typeof comment.date === 'undefined') {
         const newDate = new Date();
         let day = newDate.getDate();
         let month = newDate.getMonth() + 1;
@@ -63,7 +63,7 @@ function createCommentCard(comment) {
     const nameEl = document.createElement('h3');
     nameEl.innerText = comment.name;
     nameEl.classList.add('comment-card__top');
-    
+
 
     const commentEl = document.createElement('h4');
     commentEl.innerText = comment.commentText;
@@ -89,12 +89,12 @@ function displayComment() {
 
     // Clear the comments div first
     myCommentsEl.innerHTML = "";
-    
+
     // Outputs comments, chronologically
-    for (let i = comments.length-1; i >=0 ; i--) {
+    for (let i = comments.length - 1; i >= 0; i--) {
         const card = createCommentCard(comments[i]);
         myCommentsEl.appendChild(card);
-    }  
+    }
 }
 
 
@@ -104,15 +104,24 @@ function handlePostSubmit(event) {
 
     let name = event.target.name.value
     let commentText = event.target.comments.value
-
-    // const date = new Date();
-    // let day = date.getDate();
-    // let month = date.getMonth() + 1;
-    // let year = date.getFullYear();
-    // let currentDate = `${month}/${day}/${year}`;
-
     let currentDate;
 
+    //Form Validattion
+    if (name === '') {
+        document.querySelector('input').style.borderColor = '#D22D2D';
+    }else{
+        document.querySelector('input').style.borderColor = '#000';
+    }
+    if (commentText === '') {
+        document.querySelector('textarea').style.borderColor = '#D22D2D';
+    }else{
+        document.querySelector('textarea').style.borderColor = '#000';
+    }
+
+    //exits if either text box's are empty (after making one or both have a red border)
+    if (commentText === '' || name === '') {
+        return;
+    }
 
     const newComment = {
         name,
@@ -120,7 +129,7 @@ function handlePostSubmit(event) {
         commentText
     }
 
-    
+    console.log(name);
     comments.push(newComment)
     displayComment();
     event.target.name.value = '';
@@ -135,30 +144,30 @@ function timeSince(date) {
     var seconds = Math.floor((new Date() - date) / 1000);
     var interval = seconds / 31536000;
     if (interval > 1) {
-      return Math.floor(interval) + " years";
+        return Math.floor(interval) + " years";
     }
     interval = seconds / 2592000;
     if (interval > 1) {
-      return Math.floor(interval) + " months";
+        return Math.floor(interval) + " months";
     }
     interval = seconds / 86400;
     if (interval > 1) {
-      return Math.floor(interval) + " days";
+        return Math.floor(interval) + " days";
     }
     interval = seconds / 3600;
     if (interval > 1) {
-      return Math.floor(interval) + " hours ago";
+        return Math.floor(interval) + " hours ago";
     }
     interval = seconds / 60;
     if (interval > 1) {
-      return Math.floor(interval) + " minutes ago";
+        return Math.floor(interval) + " minutes ago";
     }
     // return Math.floor(seconds) + " seconds";
     return "just now";
-  }
-  var aDay = 24*60*60*1000;
-  console.log(timeSince(new Date(Date.now())));
-  console.log(timeSince(new Date(Date.now()-aDay)));
-  console.log(timeSince(new Date(Date.now()-aDay*2)));
+}
+var aDay = 24 * 60 * 60 * 1000;
+console.log(timeSince(new Date(Date.now())));
+console.log(timeSince(new Date(Date.now() - aDay)));
+console.log(timeSince(new Date(Date.now() - aDay * 2)));
 
 displayComment();

@@ -308,6 +308,12 @@ textarea::placeholder {
     font-weight: 600;
     color: $secondary-dark;
 }
+// input:focus:required:invalid {
+//     border: 2px solid red;
+// }
+// // input:required:valid { 
+// //     border: 2px solid black; 
+// // }
 
 label {
     color: $primary-inactive;
