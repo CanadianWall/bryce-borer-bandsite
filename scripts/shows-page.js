@@ -1,3 +1,5 @@
+let activeId;
+
 const shows = [
     {
         date: 'Wed Dec 15 2021',
@@ -31,10 +33,12 @@ const shows = [
     }
 ];
 
-function createShowCard(show) {
+function createShowCard(show, i) {
     //initialize a card
-    const cardEl = document.createElement('div');    
+    const cardEl = document.createElement('article');
     cardEl.classList.add('show');
+    cardEl.setAttribute('id', i);
+
 
     const dateHeading = document.createElement('h3'); // is a node
     dateHeading.innerHTML = 'DATE';
@@ -88,11 +92,9 @@ function displayShow() {
 
     // Outputs comments, chronologically
     for (let i = shows.length - 1; i >= 0; i--) {
-        const card = createShowCard(shows[i]);
+        const card = createShowCard(shows[i], i);
         myShowsEl.appendChild(card);
     }
 
 }
-
-
 displayShow();
