@@ -12,10 +12,14 @@
     &__wrapper {
         position: relative;
         z-index: 1;
-        height: 70%;
+        height: 500px;
         width: 100%;
         object-fit: cover;
         display: flex;
+
+        @include tablet{
+            height: 600px;
+        }
     }
 
     &__album {
@@ -25,6 +29,7 @@
         position: absolute;
         z-index: 3;
         top: 10%;
+
         @include tablet {
             margin: 0 $tablet-margin;
         }
@@ -52,7 +57,7 @@
 
         @include desktop {
             margin: 0 $desktop-margin;
-            top: 45%;
+            top: 52%;
             width: 45%;
         }
     }
@@ -63,22 +68,46 @@
         z-index: 3;
         top: 45%;
 
-        @include tablet{
-        width: 50%;
-        top:50%;
+        @include tablet {
+            width: 50%;
+            top: 50%;
         }
-        @include desktop{
+
+        @include desktop {
             width: 30%;
-            top:37%;
-            left:60%;
+            top: 37%;
+            left: 60%;
             height: 140px;
-            }
+        }
     }
 
-    
+
 }
 
 .shows {
+
+    @include desktop {
+        position: relative;
+        height: calc($desktop-column*10);
+    }
+
+    &__title {
+        @include desktop {
+            position: absolute;
+            top: 5%;
+            left: 10%;
+        }
+    }
+
+    &__wrapper {
+        @include desktop {
+            width: 60%;
+            position: absolute;
+            top: 9%;
+            left: 30%;
+        }
+    }
+
 
     &--heading {
         font-family: 'AvenirNext';
@@ -86,15 +115,15 @@
         margin: 0 $mobile-margin 8px $mobile-margin;
         padding-top: $mobile-margin;
 
-        @include tablet{
+        @include tablet {
             // padding-bottom: $tablet-margin;
         }
     }
 
     &__item {
-        margin:0 $mobile-margin $mobile-margin $mobile-margin;
+        margin: 0 $mobile-margin $mobile-margin $mobile-margin;
 
-        @include tablet{
+        @include tablet {
             flex-direction: row;
             margin: 8px $mobile-margin 0 $mobile-margin;
         }
@@ -104,27 +133,30 @@
 
 .show {
     background-color: $primary-light;
-    display:flex;
+    display: flex;
     flex-direction: column;
     position: relative;
-    
 
-    @include tablet{
+
+    @include tablet {
         flex-direction: row;
         justify-content: space-around;
     }
 
-    &__groups{
-        display:flex;
+
+
+    &__groups {
+        display: flex;
         flex-direction: column;
 
-        @include tablet{
+        @include tablet {
             flex-direction: column;
             align-items: left;
             justify-content: center;
         }
     }
 }
+
 .show:after {
     content: "";
     background: $secondary-inactive;
@@ -133,7 +165,7 @@
     left: 1%;
     height: 1px;
     width: 98%;
-  }
+}
 
 .show:hover {
     background-color: $secondary-light;
@@ -160,7 +192,7 @@
     width: calc(100% - 32px);
     margin-bottom: $mobile-margin;
 
-    @include tablet{
+    @include tablet {
         width: 12rem;
         margin: $tablet-gutter 0;
     }

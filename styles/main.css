@@ -641,11 +641,16 @@ label {
 .hero-show__wrapper {
   position: relative;
   z-index: 1;
-  height: 70%;
+  height: 500px;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   display: flex;
+}
+@media (min-width: 768px) {
+  .hero-show__wrapper {
+    height: 600px;
+  }
 }
 .hero-show__album {
   margin: 16px;
@@ -683,7 +688,7 @@ label {
 @media (min-width: 1200px) {
   .hero-show__title {
     margin: 0 124px;
-    top: 45%;
+    top: 52%;
     width: 45%;
   }
 }
@@ -708,6 +713,27 @@ label {
   }
 }
 
+@media (min-width: 1200px) {
+  .shows {
+    position: relative;
+    height: 630px;
+  }
+}
+@media (min-width: 1200px) {
+  .shows__title {
+    position: absolute;
+    top: 5%;
+    left: 10%;
+  }
+}
+@media (min-width: 1200px) {
+  .shows__wrapper {
+    width: 60%;
+    position: absolute;
+    top: 9%;
+    left: 30%;
+  }
+}
 .shows--heading {
   font-family: "AvenirNext";
   color: #AFAFAF;
