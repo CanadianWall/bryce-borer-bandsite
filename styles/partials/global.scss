@@ -1,10 +1,13 @@
 @use './variables' as *;
 @use './mixins' as *;
 
-html, body{
+html,
+body {
     margin: 0;
-padding: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 
 h1 {
     font-family: 'AvenirNext';
@@ -13,7 +16,8 @@ h1 {
     font-weight: 700;
     margin: 24px 16px 16px 16px;
 
-        @include tablet {
+    @include tablet {
+
         font-size: 3.75rem;
         line-height: 4.25rem;
     }
@@ -82,19 +86,43 @@ h5 {
     }
 }
 
-a{
+a {
     text-decoration: none;
-    color:$primary-light;
-  }
-ul{
-    list-style-type: none;
-    padding:0;
-    margin:0;
+    color: $primary-light;
 }
 
-.bold{
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bold {
     font-family: 'AvenirNext-bold';
 }
-.demi{
+
+.demi {
     font-family: 'AvenirNext-demi';
+}
+
+.button{
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    background-color: $primary-dark;
+    color: $primary-light;
+    border-radius: 4px;
+    font-size: 1.5rem;
+    align-items: center;
+    margin: $mobile-margin auto;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.card-divider{
+    background-color: $secondary-inactive;
+    height: 1px;
+    width: 100%;
 }

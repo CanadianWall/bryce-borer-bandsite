@@ -15,7 +15,7 @@
         </a>
         <nav class="main-header__links">
             <div class="main-header__links--wrapper main-header__active">
-                <a class="main-header__item main-header__item__active">
+                <a class="main-header__item main-header__item__active" href="./index.html">
                     <h3 class="main-header--text">Biography</h3>
                 </a>
             </div>
@@ -84,44 +84,74 @@
             <h2 class="gallery__title">Photo Gallery</h2>
             <ul class="gallery__list">
                 <li class="gallery__list__item">
-                    <img class="gallery__img" src="./assets/images/Photo-gallery-1.jpg">
+                    <img class="gallery__img" src="./assets/images/Photo-gallery-1.jpg" alt="gallery image 1">
                 </li>
                 <li class="gallery__list__item">
-                    <img class="gallery__img" src="./assets/images/Photo-gallery-2.jpg">
+                    <img class="gallery__img" src="./assets/images/Photo-gallery-2.jpg" alt="gallery image 2">
                 </li>
                 <li class="gallery__list__item">
-                    <img class="gallery__img" src="./assets/images/Photo-gallery-3.jpg">
+                    <img class="gallery__img" src="./assets/images/Photo-gallery-3.jpg" alt="gallery image 3">
                 </li>
                 <li class="gallery__list__item">
-                    <img class="gallery__img" src="./assets/images/Photo-gallery-4.jpg">
+                    <img class="gallery__img" src="./assets/images/Photo-gallery-4.jpg" alt="gallery image 4">
                 </li>
                 <li class="gallery__list__item">
-                    <img class="gallery__img" src="./assets/images/Photo-gallery-5.jpg">
+                    <img class="gallery__img" src="./assets/images/Photo-gallery-5.jpg" alt="gallery image 5">
                 </li>
                 <li class="gallery__list__item">
-                    <img class="gallery__img" src="./assets/images/Photo-gallery-6.jpg">
-                </li>
-
-                <li class="gallery__list__item">
-                    <img class="gallery__img" src="./assets/images/Photo-gallery-7.jpg">
+                    <img class="gallery__img" src="./assets/images/Photo-gallery-6.jpg" alt="gallery image 6">
                 </li>
                 <li class="gallery__list__item">
-                    <img class="gallery__img" src="./assets/images/Photo-gallery-8.jpg">
+                    <img class="gallery__img" src="./assets/images/Photo-gallery-7.jpg" alt="gallery image 7">
                 </li>
                 <li class="gallery__list__item">
-                    <img class="gallery__img" src="./assets/images/Photo-gallery-9.jpg">
+                    <img class="gallery__img" src="./assets/images/Photo-gallery-8.jpg" alt="gallery image 8">
+                </li>
+                <li class="gallery__list__item">
+                    <img class="gallery__img" src="./assets/images/Photo-gallery-9.jpg" alt="gallery image 9">
                 </li>
             </ul>
         </section>
+        <h2 class="comments-title">Join the Conversation</h2>
+        <section class="comments--wrapper">
+            
+            <div><img  class="avatar" src="./assets/images/Mohan-muruge.jpg"></div>
+            <div class="comments">
+                <form id="comment-section" class="comment-section" novalidate>
+
+                    <!-- Name input -->
+                    <label for="name">Name</label>
+                    <input class="comments__input" type="text" name="name" id="name" placeholder="Enter your name" required>
+
+                    <!-- Textarea -->
+                    <label for="comments">Comment</label>
+                    <textarea class="comments__text-area" name="comments" id="comments"
+                        placeholder="Add a new comment"></textarea>
+
+                    <button type="submit" class="button">COMMENT</button>
+
+                </form>
+            </div>
+
+        </section>
+
+        <section class="posted comments comment-section">
+            <div id="posted--comment">
+                <!-- Posted comments here -->
+            </div>
+        </section>
     </main>
+
     <footer class="foot">
         <div class="foot__banner">
             <div class=foot__banner--left>
                 <h2 class="foot__banner--title">Get in Touch</h2>
                 <div class="foot__banner__icon">
-                    <img class="foot__banner__icon__img" src="./assets/icons/SVG/Icon-instagram.svg">
-                    <img class="foot__banner__icon__img" src="./assets/icons/SVG/Icon-facebook.svg">
-                    <img class="foot__banner__icon__img" src="./assets/icons/SVG/Icon-twitter.svg">
+
+                    <img class="foot__banner__icon__img" src="./assets/icons/SVG/Icon-instagram.svg"
+                        alt="instagram icon">
+                    <img class="foot__banner__icon__img" src="./assets/icons/SVG/Icon-facebook.svg" alt="facebook icon">
+                    <img class="foot__banner__icon__img" src="./assets/icons/SVG/Icon-twitter.svg" alt="twitter icon">
                 </div>
             </div>
             <h3 class="foot__banner__band-title">BANDSITE</h3>
@@ -155,6 +185,7 @@
             <h4 class="foot__text--bot-margin">Copyright The Bees Knees © 2021 All Rights Reserved</h4>
         </section>
     </footer>
+    <script src="./scripts/index-page.js"></script>
 </body>
 
 </html>
