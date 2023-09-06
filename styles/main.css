@@ -16,13 +16,11 @@
   font-weight: 600;
   font-style: normal;
 }
-
 html,
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
 h1 {
@@ -45,7 +43,6 @@ h2 {
   line-height: 2rem;
   font-weight: 700;
 }
-
 @media (min-width: 768px) {
   h2 {
     font-size: 2.25rem;
@@ -122,22 +119,6 @@ ul {
 
 .demi {
   font-family: "AvenirNext-demi";
-}
-
-.button {
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  background-color: #323232;
-  color: #FFFFFF;
-  border-radius: 4px;
-  font-size: 1.5rem;
-  align-items: center;
-  margin: 16px auto;
-  width: 100%;
-  height: 40px;
-  display: flex;
-  justify-content: center;
 }
 
 .card-divider {
@@ -492,18 +473,45 @@ ul {
   transition: 1s;
 }
 
+@media (min-width: 768px) {
+  .conversation {
+    margin: 36px;
+  }
+}
+
 .comments-title {
   margin-left: 16px;
 }
 
 .comment-section {
+  display: flex;
+  flex-direction: column;
   margin: 0 1rem;
   border-bottom: 1px solid #E1E1E1;
+}
+.comment-section--left {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .comment-section {
+    align-items: flex-end;
+  }
 }
 
 .comments--wrapper {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+}
+@media (min-width: 768px) {
+  .comments--wrapper {
+    margin: 0 36px;
+  }
+}
+@media (min-width: 1200px) {
+  .comments--wrapper {
+    margin: 0 248px;
+  }
 }
 
 .comments {
@@ -511,7 +519,7 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 88%;
+  width: 98%;
   box-sizing: border-box;
 }
 .comments__input {
@@ -524,7 +532,7 @@ ul {
   width: 96%;
 }
 
-.avatar {
+.avatar, .avatar__posted {
   background-color: #E1E1E1;
   border-radius: 50%;
   height: 36px;
@@ -533,19 +541,57 @@ ul {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.avatar__posted {
+  margin: 16px;
+  margin-left: 0px;
+}
 
 .comment-card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 88%;
 }
 .comment-card__top {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+  justify-content: space-between;
+}
+.comment-card--posted {
+  margin-top: 8px;
 }
 
-input, textarea {
+.button {
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: #323232;
+  color: #FFFFFF;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  align-items: center;
+  margin: 16px auto;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .button {
+    width: 30%;
+    margin: 36px 0;
+  }
+}
+
+.button:hover {
+  background-color: #000000;
+}
+
+input,
+textarea {
   font-family: "AvenirNext";
   font-size: 0.875rem;
   line-height: 1.375rem;
@@ -565,7 +611,8 @@ input::-moz-placeholder, textarea::-moz-placeholder {
   color: #000000;
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
   font-family: "AvenirNext";
   font-size: 0.875rem;
   line-height: 1.375rem;
@@ -594,11 +641,16 @@ label {
 .hero-show__wrapper {
   position: relative;
   z-index: 1;
-  height: 70%;
+  height: 500px;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   display: flex;
+}
+@media (min-width: 768px) {
+  .hero-show__wrapper {
+    height: 600px;
+  }
 }
 .hero-show__album {
   margin: 16px;
@@ -607,6 +659,17 @@ label {
   z-index: 3;
   top: 10%;
 }
+@media (min-width: 768px) {
+  .hero-show__album {
+    margin: 0 36px;
+  }
+}
+@media (min-width: 1200px) {
+  .hero-show__album {
+    margin: 0 124px;
+    top: 30%;
+  }
+}
 .hero-show__title {
   margin: 16px;
   color: white;
@@ -614,15 +677,19 @@ label {
   z-index: 3;
   top: 30%;
   transform: translate(0%, -50%);
+  width: 50%;
 }
 @media (min-width: 768px) {
   .hero-show__title {
     margin: 0 36px;
+    width: 60%;
   }
 }
 @media (min-width: 1200px) {
   .hero-show__title {
     margin: 0 124px;
+    top: 52%;
+    width: 45%;
   }
 }
 .hero-show__song {
@@ -631,13 +698,136 @@ label {
   z-index: 3;
   top: 45%;
 }
+@media (min-width: 768px) {
+  .hero-show__song {
+    width: 50%;
+    top: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  .hero-show__song {
+    width: 30%;
+    top: 37%;
+    left: 60%;
+    height: 140px;
+  }
+}
 
+.shows {
+  pointer-events: none;
+}
+@media (min-width: 1200px) {
+  .shows {
+    position: relative;
+    height: 630px;
+  }
+}
+.shows__title {
+  pointer-events: none;
+}
+@media (min-width: 1200px) {
+  .shows__title {
+    position: absolute;
+    top: 5%;
+    left: 10%;
+  }
+}
+.shows__wrapper {
+  pointer-events: none;
+}
+@media (min-width: 1200px) {
+  .shows__wrapper {
+    width: 60%;
+    position: absolute;
+    top: 9%;
+    left: 30%;
+  }
+}
 .shows--heading {
+  pointer-events: none;
   font-family: "AvenirNext";
   color: #AFAFAF;
-  margin: 16px;
-  margin-bottom: 8px;
+  margin: 0 16px 8px 16px;
+  padding-top: 16px;
 }
 .shows__item {
-  margin: 8px 16px 16px 16px;
+  margin: 0 16px 16px 16px;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .shows__item {
+    flex-direction: row;
+    margin: 8px 16px 0 16px;
+  }
+}
+.shows__posted {
+  pointer-events: none;
+}
+
+.show {
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  pointer-events: auto;
+}
+@media (min-width: 768px) {
+  .show {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+.show__groups {
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .show__groups {
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+  }
+}
+
+.show:after {
+  content: "";
+  background: #E1E1E1;
+  position: absolute;
+  bottom: 0;
+  left: 1%;
+  height: 1px;
+  width: 98%;
+}
+
+.show:hover {
+  background-color: #FAFAFA;
+}
+
+.button--shows {
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: #323232;
+  color: #FFFFFF;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  align-items: center;
+  margin: 16px auto;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  width: calc(100% - 32px);
+  margin-bottom: 16px;
+  pointer-events: auto;
+}
+@media (min-width: 768px) {
+  .button--shows {
+    width: 12rem;
+    margin: 24px 0;
+  }
+}
+
+.button--shows:hover {
+  background-color: #000000;
 }/*# sourceMappingURL=main.css.map */

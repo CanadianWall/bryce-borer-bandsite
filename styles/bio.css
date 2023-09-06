@@ -3,7 +3,6 @@
   width: 100%;
   margin: 0;
   filter: grayscale(0.5);
-
 }
 .hero__wrapper {
   position: relative;
@@ -47,7 +46,6 @@
 @media (min-width: 1200px) {
   .bio__margin {
     margin: 0 124px;
-
   }
 }
 .bio__img {
@@ -101,13 +99,11 @@
     padding: 0 36px;
   }
 }
-
 @media (min-width: 1200px) {
   .bio {
     padding: 0 124px;
   }
 }
-
 
 .gallery {
   display: flex;
@@ -160,7 +156,12 @@
 .gallery__img:hover {
   filter: grayscale(0);
   transition: 1s;
+}
 
+@media (min-width: 768px) {
+  .conversation {
+    margin: 36px;
+  }
 }
 
 .comments-title {
@@ -168,13 +169,34 @@
 }
 
 .comment-section {
+  display: flex;
+  flex-direction: column;
   margin: 0 1rem;
   border-bottom: 1px solid #E1E1E1;
+}
+.comment-section--left {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .comment-section {
+    align-items: flex-end;
+  }
 }
 
 .comments--wrapper {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+}
+@media (min-width: 768px) {
+  .comments--wrapper {
+    margin: 0 36px;
+  }
+}
+@media (min-width: 1200px) {
+  .comments--wrapper {
+    margin: 0 248px;
+  }
 }
 
 .comments {
@@ -182,7 +204,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 88%;
+  width: 98%;
   box-sizing: border-box;
 }
 .comments__input {
@@ -195,7 +217,7 @@
   width: 96%;
 }
 
-.avatar {
+.avatar, .avatar__posted {
   background-color: #E1E1E1;
   border-radius: 50%;
   height: 36px;
@@ -204,19 +226,57 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
+.avatar__posted {
+  margin: 16px;
+  margin-left: 0px;
+}
 
 .comment-card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 88%;
 }
 .comment-card__top {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+  justify-content: space-between;
+}
+.comment-card--posted {
+  margin-top: 8px;
 }
 
-input, textarea {
+.button {
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: #323232;
+  color: #FFFFFF;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  align-items: center;
+  margin: 16px auto;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .button {
+    width: 30%;
+    margin: 36px 0;
+  }
+}
+
+.button:hover {
+  background-color: #000000;
+}
+
+input,
+textarea {
   font-family: "AvenirNext";
   font-size: 0.875rem;
   line-height: 1.375rem;
@@ -236,7 +296,8 @@ input::-moz-placeholder, textarea::-moz-placeholder {
   color: #000000;
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
   font-family: "AvenirNext";
   font-size: 0.875rem;
   line-height: 1.375rem;

@@ -27,6 +27,7 @@
         @include tablet {
             margin: 0 $tablet-margin;
         }
+
         @include desktop {
             margin: 0 $desktop-margin;
         }
@@ -45,6 +46,7 @@
             margin: 0 $tablet-margin;
         }
     }
+
     @include desktop {
         &__margin {
             margin: 0 $desktop-margin;
@@ -76,17 +78,20 @@
     &__article {
         display: flex;
         flex-direction: column;
-        
+
         @include tablet {
             flex-direction: row;
             margin: $tablet-gutter;
+
             &--text {
                 margin: 0 calc($tablet-gutter/2);
             }
         }
+
         @include desktop {
             flex-direction: row;
             margin: $desktop-gutter calc($desktop-gutter*2);
+
             &--text {
                 margin: 0 calc($desktop-gutter/2);
             }
@@ -97,6 +102,7 @@
     @include tablet {
         padding: 0 $tablet-margin;
     }
+
     @include desktop {
         padding: 0 $desktop-margin;
     }
@@ -117,11 +123,12 @@
         @include tablet {
             margin-left: $tablet-margin;
         }
+
         @include desktop {
             margin-left: $desktop-margin;
         }
     }
-    
+
 
     @include tablet {
 
@@ -158,41 +165,68 @@
     transition: 1s;
 }
 
+.conversation{
+
+    @include tablet {
+        margin: $tablet-margin;
+    }
+}
 
 // This is all the new stuff
-.comments-title{
+.comments-title {
     margin-left: $mobile-margin;
 }
+
 .comment-section {
+    display:flex;
+    flex-direction:column;
     margin: 0 1rem;
     border-bottom: 1px solid $secondary-inactive;
+    
+    &--left{
+        width:100%;
+    }
+
+    @include tablet{
+
+        align-items: flex-end;
+    }
 }
-.comments--wrapper{
-    display:flex;
+
+.comments--wrapper {
+    display: flex;
     flex-direction: row;
+    justify-content: space-around;
+
+    @include tablet {
+        margin: 0 $tablet-margin;
+    }
+    @include desktop {
+        margin: 0 calc($desktop-margin*2);
+    }
 }
+
 .comments {
     background-color: $primary-light;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    // padding: 0 1rem;
-    width: 88%;
+    width: 98%;
     box-sizing: border-box;
 
-    &__input{
-        height:36px;
+    &__input {
+        height: 36px;
         width: 96%;
     }
 
-    &__text-area{
+    &__text-area {
         resize: none;
         height: 100px;
         width: 96%;
     }
 }
 
-.avatar{
+.avatar {
     background-color: $secondary-inactive;
     border-radius: 50%;
     height: $tablet-margin;
@@ -200,41 +234,86 @@
     margin: $tablet-margin 0 $mobile-margin $mobile-margin;
     object-fit: cover;
 
-}
-
-.comment-card{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-
-    &__top{
-        display:flex;
-        flex-direction: column;
+    &__posted {
+        @extend .avatar;
+        margin: $mobile-margin;
+        margin-left:0px;
     }
 
 }
 
-input, textarea{
+.comment-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 88%;
+
+    &__top {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 0;
+        justify-content: space-between;
+    }
+
+    &--posted {
+        margin-top: 8px;
+    }
+
+}
+.button{
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    background-color: $primary-dark;
+    color: $primary-light;
+    border-radius: 4px;
+    font-size: 1.5rem;
+    align-items: center;
+    margin: $mobile-margin auto;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+
+    @include tablet{
+        width: 30%;
+        margin: $tablet-margin 0;
+    }
+   
+}
+.button:hover{
+    background-color: $secondary-dark;
+}
+
+input,
+textarea {
     font-family: 'AvenirNext';
     font-size: 0.875rem;
     line-height: 1.375rem;
     font-weight: 600;
-    border-radius: 5px; 
+    border-radius: 5px;
     border: 1px solid $primary-inactive;
     display: block;
     margin: 0.5rem 0;
     padding: 5px 10px;
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
     font-family: 'AvenirNext';
     font-size: 0.875rem;
     line-height: 1.375rem;
     font-weight: 600;
-    color:$secondary-dark;
+    color: $secondary-dark;
 }
+// input:focus:required:invalid {
+//     border: 2px solid red;
+// }
+// // input:required:valid { 
+// //     border: 2px solid black; 
+// // }
 
 label {
     color: $primary-inactive;
