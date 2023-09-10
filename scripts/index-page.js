@@ -1,26 +1,86 @@
 // let currentDate = new Array();
 // let actualDate = new Array();
 // let dateCount = 0;
-const comments = [
-    {
-        avatar: 1,
-        name: 'Miles Acosta',
-        date: "20/12/2020",
-        commentText: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
+// "api_key": "6943b8bd-d12b-46e7-8f57-c03dd24e34b5"
+
+// const commentList = document.querySelector("#posted--comment");
+const comments = document.querySelector("#posted--comment");
+// const comments = [];
+console.log('comments: ');
+console.log(comments);
+
+let requestOptions = {
+    method: 'GET',
+    header: {
+        'Content-Type': 'application/json',
     },
-    {
-        avatar: 1,
-        name: 'Emilie Beach',
-        date: "09/01/2021",
-        commentText: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."
-    },
-    {
-        avatar: 1,
-        name: 'Conner Walton',
-        date: "17/02/2021",
-        commentText: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains."
-    }
-];
+}
+
+
+//Necessary 
+// API Server
+let baseUrl = "https://project-1-api.herokuapp.com";
+
+// Two ways to break down the api_key
+let api_key = '?api_key=6943b8bd-d12b-46e7-8f57-c03dd24e34b5';
+// let second_api_key = '53b1fc9f-eae8-4052-8b37-599e09015560';
+
+//Optional
+let commentsEndpoint = "/comments";
+let showsEndpoint = "/showdates";
+
+
+// const comments = [
+//     {
+//         avatar: 1,
+//         name: 'Miles Acosta',
+//         date: "20/12/2020",
+//         commentText: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
+//     },
+//     {
+//         avatar: 1,
+//         name: 'Emilie Beach',
+//         date: "09/01/2021",
+//         commentText: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."
+//     },
+//     {
+//         avatar: 1,
+//         name: 'Conner Walton',
+//         date: "17/02/2021",
+//         commentText: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains."
+//     }
+// ];
+
+fetch(`${baseUrl}${commentsEndpoint}${api_key}`,requestOptions)
+.then((response)=> {
+    return response.json()
+})
+.then((data)=> {
+    data.forEach(comment => {
+        const nameElement = document.createElement("p");
+        nameElement.innerText = comment.name;
+        comments.appendChild(nameElement);
+    });
+    console.log('data: ');
+    console.log(data[0]);
+    // console.log('comments object: ');
+    // console.log(comments);
+})
+.catch((error) => {
+        console.error('Fetch Error:', error);
+});
+console.log(comments);
+//This fetch is for shows
+// fetch(`${baseUrl}${showsEndpoint}${api_key}`,requestOptions)
+// .then((response)=> {
+//     return response.json()
+// })
+// .then((data)=> {
+//     console.log(data)
+// })
+// .catch((error) => {
+//         console.error('Fetch Error:', error);
+// });
 
 
 function createCommentCard(comment) {
