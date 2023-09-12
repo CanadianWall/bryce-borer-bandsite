@@ -26,8 +26,7 @@ const getShows = () => {
                 dateHeading.classList.add('shows--heading');
 
                 const dateEl = document.createElement('h4');
-                dateEl.textContent = timeSince(showTicket.timestamp);
-
+                dateEl.textContent = formatDate(showTicket.date);
                 dateEl.classList.add('demi');
                 dateEl.classList.add('shows__item');
 
@@ -108,6 +107,14 @@ const getShows = () => {
 //      }
 //     document.getElementById(activeShow).style.backgroundColor = "#E1E1E1";
 // }
+
+//Converts the new date object to a string and removes the time
+function formatDate(date){
+    const stringDate = new Date(date).toString();
+    const formattedDate = stringDate.slice(0, 15);   
+    return formattedDate;
+}
+
 function timeSince(date) {
     var seconds = Math.floor((new Date() - date) / 1000);
     var interval = seconds / 31536000;
