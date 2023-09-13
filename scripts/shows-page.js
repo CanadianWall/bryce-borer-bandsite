@@ -9,6 +9,7 @@ let showsEndpoint = "/showdates";
 const getShows = () => {
     const myShowsEl = document.querySelector("#showsId");
     myShowsEl.innerHTML = "";
+    let showIndex = 0;
     axios.get(`${baseUrl}${showsEndpoint}${api_key}`) //this give me back a promise
         .then((result) => {
             console.log(result.data);
@@ -16,7 +17,9 @@ const getShows = () => {
                 //initialize a card
                 const cardEl = document.createElement('article');
                 cardEl.classList.add('show');
-                // cardEl.setAttribute('id', i);
+                cardEl.classList.add('default-show-color');
+                cardEl.setAttribute('id', 'card' + showIndex);
+                console.log(document.getElementById('card'+i).id);
 
                 const dateGroup = document.createElement('div');
                 dateGroup.classList.add('show__groups');
@@ -56,7 +59,7 @@ const getShows = () => {
                 const buttonEl = document.createElement('button');
                 buttonEl.innerText = 'BUY TICKETS';
                 buttonEl.classList.add('button--shows');
-                // buttonEl.setAttribute('id', buttonId);
+                buttonEl.setAttribute('id', 'btn' + showIndex);
 
                 if (screen.width < 768 || ((screen.width >= 768) && i === 5)) {
                     dateGroup.appendChild(dateHeading);
@@ -73,40 +76,14 @@ const getShows = () => {
                 cardEl.appendChild(locationGroup);
                 cardEl.appendChild(buttonEl);
                 myShowsEl.appendChild(cardEl);
+                showIndex++;
             })
         })
         .catch((error) => console.log(error));
 }
 
-// function displayShow() {
-//     const myShowsEl = document.querySelector("#showsId");
-
-//     // Clear the comments div first
-//     myShowsEl.innerHTML = "";
-
-//     // Outputs comments, chronologically
-//     for (let i = shows.length - 1; i >= 0; i--) {
-//         const card = createShowCard(shows[i], i);
-//         myShowsEl.appendChild(card);
-//     }
-
-// }
 
 
-// this reverts the color to white on all rows, except darkens the "selected" row
-// function selectedShow(activeShow){
-//     console.log("active " + activeShow)
-    
-//     //this statement converts the button id to the article (background) id
-//     if (activeShow >=10){
-//         activeShow -=10;
-//         }
-
-//      for(i = 0; i<=5; i++){
-//     document.getElementById(i).style.backgroundColor = "#FFFFFF";
-//      }
-//     document.getElementById(activeShow).style.backgroundColor = "#E1E1E1";
-// }
 
 //Converts the new date object to a string and removes the time
 function formatDate(date){
@@ -140,24 +117,46 @@ function timeSince(date) {
     return Math.floor(seconds) + " seconds ago";
 }
     
+const listItem = document.getElementById('showsId');
+console.log(listItem);
+listItem.addEventListener("click", (event) => {
+    const listItems = document.querySelectorAll(".show");
+    listItems.forEach(item => {
+    item.classList.remove("active-show-color");
+    })
+    event.currentTarget.classList.add("active-show-color");
+    } );
 
+// venueGroup.classList.add('show__groups');
+// cardEl.setAttribute('id', 'card' + showIndex);
+//this reverts the color to white on all rows, except darkens the "selected" row
+function selectedShow(activeShow){
+    console.log("active " + activeShow)
+    
+    //this statement converts the button id to the article (background) id
+     for(i = 0; i<=5; i++){
+    // document.getElementById('card'+i).style.backgroundColor = "#FFFFFF";
+    document.getElementById('card'+i).classList.remove('active-show-color');
 
-
+     }
+    document.getElementById(activeShow).style.backgroundColor = "#E1E1E1";
+}
 
 // Shows will be rerendered when the screen size changes
 window.addEventListener("resize", function (event) {
     location.reload();
 })
 
-//this listens for mouse clicks on the "selected" row on the show table
-// for (i = 0; i<=5; i++){ 
-//     document.getElementById(i).addEventListener('click', function(event){
-//             selectedShow(event.target.id);
-//     })
-//     document.getElementById(i+10).addEventListener('click', function(event){
-//             selectedShow(event.target.id);
-//     })
-// }
 
-// displayShow();
+
 getShows();
+
+//this listens for mouse clicks on the "selected" row on the show table
+for (i = 0; i<=5; i++){ 
+    document.getElementById('card'+i).addEventListener('click', function(event){
+            selectedShow(event.target.id);
+    })
+    document.getElementById('btn'+i).addEventListener('click', function(event){
+            selectedShow(event.target.id);
+    })
+}

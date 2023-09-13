@@ -131,7 +131,6 @@
 }
 
 .show {
-  background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -156,6 +155,14 @@
   }
 }
 
+.active-show-color {
+  background-color: lightgreen;
+}
+
+.default-show-color {
+  background-color: #E1E1E1;
+}
+
 .show:after {
   content: "";
   background: #E1E1E1;
@@ -167,7 +174,7 @@
 }
 
 .show:hover {
-  background-color: #FAFAFA;
+  background-color: pink;
 }
 
 .button--shows {

@@ -9,7 +9,6 @@ let api_key = '?api_key=6943b8bd-d12b-46e7-8f57-c03dd24e34b5';
 
 
 let commentsEndpoint = "/comments";
-let showsEndpoint = "/showdates";
 
 const getComments = () => {
     const myCommentsEl = document.querySelector("#posted--comment");
@@ -60,8 +59,6 @@ const getComments = () => {
 
                 const dateEl = document.createElement('h4');
                 dateEl.textContent = timeSince(user.timestamp);
-                // dateEl.textContent = new Date(user.timestamp);
-                // dateEl.textContent = user.timestamp;
                 dateEl.classList.add('comment-card__top');
 
                 const dividerEl = document.createElement('div');
