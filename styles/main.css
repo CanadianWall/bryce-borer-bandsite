@@ -648,6 +648,10 @@ label {
   display: inline;
 }
 
+.comment-error {
+  border-color: #D22D2D;
+}
+
 .hero-show {
   position: relative;
   width: 100%;
@@ -781,7 +785,6 @@ label {
 }
 
 .show {
-  background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -806,6 +809,14 @@ label {
   }
 }
 
+.default-show-color {
+  background-color: #FFFFFF;
+}
+
+.active-show-color {
+  background-color: #E1E1E1;
+}
+
 .show:after {
   content: "";
   background: #E1E1E1;
@@ -817,7 +828,7 @@ label {
 }
 
 .show:hover {
-  background-color: pink;
+  background-color: #FAFAFA;
 }
 
 .button--shows {

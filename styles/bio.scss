@@ -110,7 +110,6 @@
 
 
 .gallery {
-
     display: flex;
     flex-direction: column;
     background-color: $secondary-light;
@@ -128,7 +127,6 @@
             margin-left: $desktop-margin;
         }
     }
-
 
     @include tablet {
 
@@ -172,7 +170,6 @@
     }
 }
 
-// This is all the new stuff
 .comments-title {
     margin-left: $mobile-margin;
 }
@@ -239,7 +236,6 @@
         margin: $mobile-margin;
         margin-left:0px;
     }
-
 }
 
 .comment-card {
@@ -303,7 +299,6 @@
     justify-content: center;
 }
 
-
 input,
 textarea {
     font-family: 'AvenirNext';
@@ -325,12 +320,6 @@ textarea::placeholder {
     font-weight: 600;
     color: $secondary-dark;
 }
-// input:focus:required:invalid {
-//     border: 2px solid red;
-// }
-// // input:required:valid { 
-// //     border: 2px solid black; 
-// // }
 
 label {
     color: $primary-inactive;
@@ -342,4 +331,8 @@ label {
 
 .inline {
     display: inline;
+}
+
+.comment-error{
+border-color: #D22D2D;
 }

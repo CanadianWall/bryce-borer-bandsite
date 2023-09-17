@@ -331,4 +331,8 @@ label {
 
 .inline {
   display: inline;
+}
+
+.comment-error {
+  border-color: #D22D2D;
 }/*# sourceMappingURL=bio.css.map */

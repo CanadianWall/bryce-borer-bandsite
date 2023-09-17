@@ -1,13 +1,8 @@
-// "api_key": "6943b8bd-d12b-46e7-8f57-c03dd24e34b5"
 // https://project-1-api.herokuapp.com?api_key=6943b8bd-d12b-46e7-8f57-c03dd24e34b5
 
 // API Server
 let baseUrl = "https://project-1-api.herokuapp.com";
-
-// let api_key = '?api_key=6943b8bd-d12b-46e7-8f57-c03dd24e34b5';
 let api_key = '?api_key=6943b8bd-d12b-46e7-8f57-c03dd24e34b5';
-
-
 let commentsEndpoint = "/comments";
 
 const getComments = () => {
@@ -15,14 +10,12 @@ const getComments = () => {
                 myCommentsEl.innerHTML = "";
     axios.get(`${baseUrl}${commentsEndpoint}${api_key}`) //this give me back a promise
         .then((result) => {
-            console.log(result.data);
             let objectIndex = 0; // for sorting comments
             result.data.forEach((user) => {
                 const wrapperEl = document.createElement('div');
                 wrapperEl.classList.add('comments--wrapper');
 
                 const avatarEl = document.createElement('img');
-                // avatarEl.src = "./assets/images/Mohan-muruge.jpg";
                 avatarEl.classList.add('avatar__posted');
                 wrapperEl.appendChild(avatarEl);
 
@@ -64,7 +57,6 @@ const getComments = () => {
                 const dividerEl = document.createElement('div');
                 dividerEl.classList.add('card-divider');
 
-
                 cardTopEl.appendChild(nameEl);
                 cardTopEl.appendChild(dateEl);
                 
@@ -79,14 +71,13 @@ const getComments = () => {
                 cardEl.appendChild(dividerEl);
                 wrapperEl.appendChild(cardEl);
 
-                // This sorts the comments chronologically. Only works because objects are already in chronological order
+                // This sorts the comments chronologically.
                 if(objectIndex > 0 && result.data[objectIndex].timestamp > result.data[objectIndex-1].timestamp){
                     myCommentsEl.prepend(wrapperEl);
                 }else{
                     myCommentsEl.appendChild(wrapperEl);
                 }
-                objectIndex++;
-                             
+                objectIndex++;              
             })
         })
         .catch((error) => console.log(error));
@@ -114,6 +105,9 @@ function timeSince(date) {
     if (interval > 1) {
         return Math.floor(interval) + " minutes ago";
     }
+    if (interval < 0.05) {
+        return "Just now";
+    }
     return Math.floor(seconds) + " seconds ago";
 }
 
@@ -125,14 +119,14 @@ function handlePostSubmit(event) {
 
     //Form Validattion
     if (name === '') {
-        document.querySelector('input').style.borderColor = '#D22D2D';
+        document.querySelector('input').classList.add('comment-error');
     }else{
-        document.querySelector('input').style.borderColor = '#000';
+        document.querySelector('input').classList.remove('comment-error');
     }
     if (comment === '') {
-        document.querySelector('textarea').style.borderColor = '#D22D2D';
+        document.querySelector('textarea').classList.add('comment-error');
     }else{
-        document.querySelector('textarea').style.borderColor = '#000';
+        document.querySelector('textarea').classList.remove('comment-error');
     }
 
     //exits if either text box's are empty (after making one or both have a red border)
@@ -147,7 +141,6 @@ function handlePostSubmit(event) {
     
     //posts the new comment
     axios.post(`${baseUrl}${commentsEndpoint}${api_key}`, newComment)
-    .then((response) => console.log(response))
     .catch((error) => console.log(error))
 
     // Verifies POST is complete, then runs getComments()

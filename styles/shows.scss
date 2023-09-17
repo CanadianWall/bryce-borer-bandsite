@@ -140,7 +140,6 @@
 
 
 .show {
-    // background-color: $primary-light;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -166,14 +165,14 @@
     }
 }
 
-.active-show-color{
-// background-color: $primary-light;
-background-color: lightgreen;
-}
+
 
 .default-show-color{
-    background-color: $secondary-inactive;
+    background-color: $primary-light;
 }
+.active-show-color{
+    background-color: $secondary-inactive;
+    }
 
 .show:after {
     content: "";
@@ -186,8 +185,7 @@ background-color: lightgreen;
 }
 
 .show:hover {
-    // background-color: $secondary-light;
-    background-color: pink;
+    background-color: $secondary-light;
 }
 
 .button--shows {

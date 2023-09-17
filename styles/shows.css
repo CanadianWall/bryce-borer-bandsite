@@ -155,11 +155,11 @@
   }
 }
 
-.active-show-color {
-  background-color: lightgreen;
+.default-show-color {
+  background-color: #FFFFFF;
 }
 
-.default-show-color {
+.active-show-color {
   background-color: #E1E1E1;
 }
 
@@ -174,7 +174,7 @@
 }
 
 .show:hover {
-  background-color: pink;
+  background-color: #FAFAFA;
 }
 
 .button--shows {
