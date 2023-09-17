@@ -98,6 +98,24 @@
     left: 10%;
   }
 }
+.shows__title__labels {
+  pointer-events: none;
+  display: none;
+}
+@media (min-width: 768px) {
+  .shows__title__labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 16px 8px 16px;
+  }
+}
+@media (min-width: 1200px) {
+  .shows__title__labels {
+    display: flex;
+    flex-direction: row;
+  }
+}
 .shows__wrapper {
   pointer-events: none;
 }
@@ -116,6 +134,11 @@
   margin: 0 16px 8px 16px;
   padding-top: 16px;
 }
+@media (min-width: 768px) {
+  .shows--heading {
+    display: none;
+  }
+}
 .shows__item {
   margin: 0 16px 16px 16px;
   pointer-events: none;
@@ -128,6 +151,18 @@
 }
 .shows__posted {
   pointer-events: none;
+}
+
+#date {
+  width: 133px;
+}
+
+#venue {
+  width: 112px;
+}
+
+#location {
+  width: 145px;
 }
 
 .show {

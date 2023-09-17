@@ -15,7 +15,7 @@ const getShows = () => {
     axios.get(`${baseUrl}${showsEndpoint}${api_key}`) //this give me back a promise
         .then((result) => {
             result.data.forEach((showTicket) => {
-                
+
                 //initialize a card
                 cardEl = document.createElement('article');
                 cardEl.classList.add('show');
@@ -60,12 +60,12 @@ const getShows = () => {
                 buttonEl.innerText = 'BUY TICKETS';
                 buttonEl.classList.add('button--shows');
                 buttonEl.setAttribute('id', 'bttn' + showIndex);
+                // if (screen.width < 768 || ((screen.width >= 768) && showIndex === 0)) {
 
-                if (screen.width < 768 || ((screen.width >= 768) && i === 5)) {
-                    dateGroup.appendChild(dateHeading);
-                    venueGroup.appendChild(venueHeading);
-                    locationGroup.appendChild(locationHeading);
-                }
+                dateGroup.appendChild(dateHeading);
+                venueGroup.appendChild(venueHeading);
+                locationGroup.appendChild(locationHeading);
+
 
                 dateGroup.appendChild(dateEl);
                 venueGroup.appendChild(venueEl);
@@ -98,7 +98,6 @@ const getShows = () => {
 function formatDate(date) {
     const stringDate = new Date(date).toString();
     const formattedDate = stringDate.slice(0, 15);
-
     return formattedDate;
 }
 
