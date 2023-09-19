@@ -107,7 +107,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin: 0 16px 8px 16px;
+    margin-left: 16px;
   }
 }
 @media (min-width: 1200px) {
@@ -153,16 +153,8 @@
   pointer-events: none;
 }
 
-#date {
-  width: 133px;
-}
-
-#venue {
-  width: 112px;
-}
-
-#location {
-  width: 145px;
+#button-buffer {
+  opacity: 0;
 }
 
 .show {
@@ -181,6 +173,7 @@
   display: flex;
   flex-direction: column;
   pointer-events: none;
+  width: 20%;
 }
 @media (min-width: 768px) {
   .show__groups {

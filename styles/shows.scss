@@ -106,7 +106,7 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: space-around;
-                margin: 0 $mobile-margin 8px $mobile-margin;
+                margin-left:16px;
             }
 
             @include desktop {
@@ -155,17 +155,10 @@
     }
 }
 
-#date {
-    width: 133px;
+#button-buffer {
+    opacity: 0;
 }
 
-#venue {
-    width: 112px;
-}
-
-#location {
-    width: 145px;
-}
 
 .show {
     display: flex;
@@ -181,8 +174,8 @@
     &__groups {
         display: flex;
         flex-direction: column;
-
         pointer-events: none;
+        width: 20%;
 
         @include tablet {
             flex-direction: column;
