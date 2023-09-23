@@ -178,16 +178,23 @@ function handlePostSubmit(event) {
 function likeClick(likeId) {
 
     axios.put(`${baseUrl}${commentsEndpoint}/${likeId}/like${api_key}`)
-    getComments()
+        
+    // Verifies PUT is complete, then runs getComments()
+        let postCheck = axios.get(`${baseUrl}${commentsEndpoint}${api_key}`)
+        .then((response) => this.data = response.data)
+    postCheck.then(() => { getComments(); })
 
 
 }
 
 function deleteComment(deleteId) {
- 
     deleteId = deleteId.substring(1);
     axios.delete(`${baseUrl}${commentsEndpoint}/${deleteId}${api_key}`)
-    getComments()
+        
+    // Verifies DELETE is complete, then runs getComments()
+        let postCheck = axios.get(`${baseUrl}${commentsEndpoint}${api_key}`)
+        .then((response) => this.data = response.data)
+    postCheck.then(() => { getComments(); })
 
 }
 
