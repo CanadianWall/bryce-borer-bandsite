@@ -60,7 +60,6 @@ const getShows = () => {
                 buttonEl.innerText = 'BUY TICKETS';
                 buttonEl.classList.add('button--shows');
                 buttonEl.setAttribute('id', 'bttn' + showIndex);
-                // if (screen.width < 768 || ((screen.width >= 768) && showIndex === 0)) {
 
                 dateGroup.appendChild(dateHeading);
                 venueGroup.appendChild(venueHeading);

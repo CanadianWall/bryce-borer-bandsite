@@ -163,7 +163,7 @@
     transition: 1s;
 }
 
-.conversation{
+.conversation {
 
     @include tablet {
         margin: $tablet-margin;
@@ -175,16 +175,16 @@
 }
 
 .comment-section {
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
     margin: 0 1rem;
     border-bottom: 1px solid $secondary-inactive;
-    
-    &--left{
-        width:100%;
+
+    &--left {
+        width: 100%;
     }
 
-    @include tablet{
+    @include tablet {
 
         align-items: flex-end;
     }
@@ -198,6 +198,7 @@
     @include tablet {
         margin: 0 $tablet-margin;
     }
+
     @include desktop {
         margin: 0 calc($desktop-margin*2);
     }
@@ -234,7 +235,7 @@
     &__posted {
         @extend .avatar;
         margin: $mobile-margin;
-        margin-left:0px;
+        margin-left: 0px;
     }
 }
 
@@ -257,8 +258,29 @@
         margin-top: 8px;
     }
 
+    &__bottom {
+        display: flex;
+    }
+
+    &__likes {
+        width: $mobile-margin;
+        margin: 4px 0 0 0;
+        @include tablet{
+            margin: 2px 0 0 0;
+        }
+    }
+
+    &__likes-button {
+        margin: 0 0 8px 0;
+    }
+
+    &__delete-button {
+        margin-left: $tablet-margin;
+        margin: 0 0 8px $tablet-margin;
+    }
 }
-.button{
+
+.button {
     border: none;
     cursor: pointer;
     padding: 0.5rem;
@@ -273,17 +295,18 @@
     display: flex;
     justify-content: center;
 
-    @include tablet{
+    @include tablet {
         width: 30%;
         margin: $tablet-margin 0;
     }
-   
+
 }
-.button:hover{
+
+.button:hover {
     background-color: $secondary-dark;
 }
 
-.delete-button{
+.delete-button {
     border: none;
     cursor: pointer;
     padding: 0.5rem;
@@ -333,6 +356,6 @@ label {
     display: inline;
 }
 
-.comment-error{
-border-color: #D22D2D;
+.comment-error {
+    border-color: #D22D2D;
 }
