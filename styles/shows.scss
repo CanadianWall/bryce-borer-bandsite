@@ -1,9 +1,7 @@
 @use './partials/variables' as *;
 @use './partials/mixins' as *;
 
-
 .hero-show {
-
     position: relative;
     width: 100%;
     margin: 0;
@@ -80,13 +78,12 @@
             height: 140px;
         }
     }
-
-
 }
 
 .shows {
 
-     pointer-events: none;
+    pointer-events: none;
+
     @include desktop {
         position: relative;
         height: calc($desktop-column*10);
@@ -94,15 +91,35 @@
 
     &__title {
         pointer-events: none;
+
         @include desktop {
             position: absolute;
             top: 5%;
             left: 10%;
         }
+
+        &__labels {
+            pointer-events: none;
+            display: none;
+
+            @include tablet {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                margin-left:16px;
+            }
+
+            @include desktop {
+                display: flex;
+                flex-direction: row;
+            }
+
+        }
     }
 
     &__wrapper {
         pointer-events: none;
+
         @include desktop {
             width: 60%;
             position: absolute;
@@ -110,7 +127,6 @@
             left: 30%;
         }
     }
-
 
     &--heading {
         pointer-events: none;
@@ -120,13 +136,14 @@
         padding-top: $mobile-margin;
 
         @include tablet {
-            // padding-bottom: $tablet-margin;
+            display: none;
         }
     }
 
     &__item {
         margin: 0 $mobile-margin $mobile-margin $mobile-margin;
         pointer-events: none;
+
         @include tablet {
             flex-direction: row;
             margin: 8px $mobile-margin 0 $mobile-margin;
@@ -138,32 +155,43 @@
     }
 }
 
+#button-buffer {
+    opacity: 0;
+}
+
 
 .show {
-    background-color: $primary-light;
     display: flex;
     flex-direction: column;
     position: relative;
     pointer-events: auto;
+    width: 101%;
 
     @include tablet {
         flex-direction: row;
         justify-content: space-around;
     }
 
-
-
     &__groups {
         display: flex;
         flex-direction: column;
-
         pointer-events: none;
+        width: 20%;
+
         @include tablet {
             flex-direction: column;
             align-items: left;
             justify-content: center;
         }
     }
+}
+
+.default-show-color {
+    background-color: $primary-light;
+}
+
+.active-show-color {
+    background-color: $secondary-inactive;
 }
 
 .show:after {

@@ -1,179 +1,196 @@
-// let currentDate = new Array();
-// let actualDate = new Array();
-// let dateCount = 0;
-const comments = [
-    {
-        avatar: 1,
-        name: 'Miles Acosta',
-        date: "20/12/2020",
-        commentText: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
-    },
-    {
-        avatar: 1,
-        name: 'Emilie Beach',
-        date: "09/01/2021",
-        commentText: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."
-    },
-    {
-        avatar: 1,
-        name: 'Conner Walton',
-        date: "17/02/2021",
-        commentText: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains."
-    }
-];
+// https://project-1-api.herokuapp.com?api_key=6943b8bd-d12b-46e7-8f57-c03dd24e34b5
 
+// API Server
+let baseUrl = "https://project-1-api.herokuapp.com";
+let api_key = '?api_key=6943b8bd-d12b-46e7-8f57-c03dd24e34b5';
+let commentsEndpoint = "/comments";
+let objectIndex = 0; // for sorting comments
+let commentData;
 
-function createCommentCard(comment) {
-
-    // The wrapper contains each comment card
-    const wrapperEl = document.createElement('div');
-    wrapperEl.classList.add('comments--wrapper');
-
-    // This is for the little avatar on the left
-
-    const avatarEl = document.createElement('img');
-
-    // gives new comments an avatar picture
-    if (comment.avatar !== 1) {
-        avatarEl.src = "./assets/images/Mohan-muruge.jpg";
-    }
-
-    avatarEl.classList.add('avatar__posted');
-    wrapperEl.appendChild(avatarEl);
-
-    // This is for all the text in the comment card
-    const cardEl = document.createElement('div');
-    cardEl.classList.add('comment-card');
-
-    // Makes the name and date have a space between them, and placed above the comment text
-    const cardTopEl = document.createElement('div');
-    cardTopEl.classList.add('comment-card__top');
-
-    const dateEl = document.createElement('h4')
-
-    // if(typeof(comment.date)==='string'){
-    //     dateEl.innerText = comment.date;
-    // }else{
-    //     actualDate[dateCount]= timeSince(currentDate[dateCount]);
-    //     dateEl.innerText = comment.actualDate[dateCount];
-    // }
-    
-    
-    if (typeof comment.date === 'undefined') {
-        const newDate = new Date();
-        let day = newDate.getDate();
-        let month = newDate.getMonth() + 1;
-        let year = newDate.getFullYear();
-        comment.date = `${month}/${day}/${year}`;
-    }
-    
-    dateEl.innerText = comment.date;
-    dateEl.classList.add('comment-card__top');
-
-    const nameEl = document.createElement('h3');
-    nameEl.innerText = comment.name;
-    nameEl.classList.add('comment-card__top');
-
-
-    const commentEl = document.createElement('h4');
-    commentEl.innerText = comment.commentText;
-    commentEl.classList.add('comment-card--posted')
-
-    const dividerEl = document.createElement('div');
-    dividerEl.classList.add('card-divider');
-
-
-    cardTopEl.appendChild(nameEl);
-    cardTopEl.appendChild(dateEl);
-    cardEl.appendChild(cardTopEl);
-    cardEl.appendChild(commentEl);
-    cardEl.appendChild(dividerEl);
-
-    wrapperEl.appendChild(cardEl);
-
-    return wrapperEl;
-}
-
-function displayComment() {
+const getComments = () => {
     const myCommentsEl = document.querySelector("#posted--comment");
-
-    // Clear the comments div first
     myCommentsEl.innerHTML = "";
+    axios.get(`${baseUrl}${commentsEndpoint}${api_key}`) //this give me back a promise
+        .then((result) => {
+            objectIndex = 0; // for sorting comments
+            commentData = result;
+            result.data.forEach((user) => {
+                const wrapperEl = document.createElement('div');
+                wrapperEl.classList.add('comments--wrapper');
 
-    // Outputs comments, chronologically
-    for (let i = comments.length - 1; i >= 0; i--) {
-        const card = createCommentCard(comments[i]);
-        myCommentsEl.appendChild(card);
-    }
+                const avatarEl = document.createElement('img');
+                avatarEl.classList.add('avatar__posted');
+                wrapperEl.appendChild(avatarEl);
+
+                // This is for all the text in the comment card
+                const cardEl = document.createElement('div');
+                cardEl.classList.add('comment-card');
+
+                // Makes the name and date have a space between them, and placed above the comment text
+                const cardTopEl = document.createElement('div');
+                cardTopEl.classList.add('comment-card__top');
+
+                const cardBottomEl = document.createElement('div');
+                cardBottomEl.classList.add('comment-card__bottom');
+
+                const nameEl = document.createElement('h3');
+                nameEl.textContent = user.name;
+
+                const commentEl = document.createElement('h4');
+                commentEl.textContent = user.comment;
+                commentEl.classList.add('comment-card--posted')
+
+                const likesEl = document.createElement('p');
+                likesEl.textContent = user.likes;
+                likesEl.classList.add('comment-card__likes');
+
+                const likeButtonEl = document.createElement('img');
+                likeButtonEl.src = "./assets/icons/SVG/Icon-like.svg";
+                likeButtonEl.classList.add('comment-card__likes-button');
+                likeButtonEl.setAttribute('id', user.id);
+
+                const deleteEl = document.createElement('img');
+                deleteEl.src = "./assets/icons/SVG/Icon-delete.svg";
+                deleteEl.classList.add('comment-card__delete-button');
+                deleteEl.setAttribute('id', 'd' + user.id);
+
+                const dateEl = document.createElement('h4');
+                dateEl.textContent = timeSince(user.timestamp);
+                dateEl.classList.add('comment-card__top');
+
+                const dividerEl = document.createElement('div');
+                dividerEl.classList.add('card-divider');
+
+                cardTopEl.appendChild(nameEl);
+                cardTopEl.appendChild(dateEl);
+
+                cardEl.appendChild(cardTopEl);
+                cardEl.appendChild(commentEl);
+
+                cardBottomEl.appendChild(likesEl);
+                cardBottomEl.appendChild(likeButtonEl)
+                cardBottomEl.appendChild(deleteEl)
+
+                cardEl.appendChild(cardBottomEl);
+                cardEl.appendChild(dividerEl);
+                wrapperEl.appendChild(cardEl);
+
+                // This sorts the comments chronologically.
+                if (objectIndex > 0 && result.data[objectIndex].timestamp > result.data[objectIndex - 1].timestamp) {
+                    myCommentsEl.prepend(wrapperEl);
+                } else {
+                    myCommentsEl.appendChild(wrapperEl);
+                }
+                objectIndex++;
+            })
+        })
+        .then(() => {
+            commentData.data.forEach((user) => {
+                document.getElementById(user.id).addEventListener('click', function (event) {
+                    likeClick(event.target.id);
+                })
+                document.getElementById('d'+user.id).addEventListener('click', function (event) {
+                    deleteComment(event.target.id);
+                })
+            })
+        })
+        .catch((error) => console.log(error));
 }
 
-
+function timeSince(date) {
+    var seconds = Math.floor((new Date() - date) / 1000);
+    var interval = seconds / 31536000;
+    if (interval > 1) {
+        return Math.floor(interval) + " years ago";
+    }
+    interval = seconds / 2592000;
+    if (interval > 1) {
+        return Math.floor(interval) + " months ago";
+    }
+    interval = seconds / 86400;
+    if (interval > 1) {
+        return Math.floor(interval) + " days ago";
+    }
+    interval = seconds / 3600;
+    if (interval > 1) {
+        return Math.floor(interval) + " hours ago";
+    }
+    interval = seconds / 60;
+    if (interval > 1) {
+        return Math.floor(interval) + " minutes ago";
+    }
+    if (interval < 0.05) {
+        return "Just now";
+    }
+    return Math.floor(seconds) + " seconds ago";
+}
 
 function handlePostSubmit(event) {
     event.preventDefault();
 
     let name = event.target.name.value
-    let commentText = event.target.comments.value
-    let currentDate;
+    let comment = event.target.comments.value
 
     //Form Validattion
     if (name === '') {
-        document.querySelector('input').style.borderColor = '#D22D2D';
-    }else{
-        document.querySelector('input').style.borderColor = '#000';
+        document.querySelector('input').classList.add('comment-error');
+    } else {
+        document.querySelector('input').classList.remove('comment-error');
     }
-    if (commentText === '') {
-        document.querySelector('textarea').style.borderColor = '#D22D2D';
-    }else{
-        document.querySelector('textarea').style.borderColor = '#000';
+    if (comment === '') {
+        document.querySelector('textarea').classList.add('comment-error');
+    } else {
+        document.querySelector('textarea').classList.remove('comment-error');
     }
 
     //exits if either text box's are empty (after making one or both have a red border)
-    if (commentText === '' || name === '') {
+    if (comment === '' || name === '') {
         return;
     }
-    // currentDate[dateCount] = timeSince(Date.now());
-    // currentDate[dateCount] = new Date(Date.now());
+
     const newComment = {
         name,
-        currentDate,
-        commentText
+        comment
     }
-    
-    comments.push(newComment)
-    displayComment();
+
+    //posts the new comment
+    axios.post(`${baseUrl}${commentsEndpoint}${api_key}`, newComment)
+        .catch((error) => console.log(error))
+
+    // Verifies POST is complete, then runs getComments()
+    let postCheck = axios.get(`${baseUrl}${commentsEndpoint}${api_key}`)
+        .then((response) => this.data = response.data)
+    postCheck.then(() => { getComments(); })
+
+    //clears the textboxes
     event.target.name.value = '';
     event.target.comments.value = '';
 }
 
+function likeClick(likeId) {
 
+    axios.put(`${baseUrl}${commentsEndpoint}/${likeId}/like${api_key}`)
+        
+    // Verifies PUT is complete, then runs getComments()
+        let postCheck = axios.get(`${baseUrl}${commentsEndpoint}${api_key}`)
+        .then((response) => this.data = response.data)
+    postCheck.then(() => { getComments(); })
+
+
+}
+
+function deleteComment(deleteId) {
+    deleteId = deleteId.substring(1);
+    axios.delete(`${baseUrl}${commentsEndpoint}/${deleteId}${api_key}`)
+        
+    // Verifies DELETE is complete, then runs getComments()
+        let postCheck = axios.get(`${baseUrl}${commentsEndpoint}${api_key}`)
+        .then((response) => this.data = response.data)
+    postCheck.then(() => { getComments(); })
+
+}
+
+getComments()
 const myForm = document.getElementById('comment-section');
 myForm.addEventListener("submit", handlePostSubmit);
 
-// function timeSince(date) {
-//     var seconds = Math.floor((new Date() - date) / 1000);
-//     var interval = seconds / 31536000;
-//     if (interval > 1) {
-//         return Math.floor(interval) + " years";
-//     }
-//     interval = seconds / 2592000;
-//     if (interval > 1) {
-//         return Math.floor(interval) + " months";
-//     }
-//     interval = seconds / 86400;
-//     if (interval > 1) {
-//         return Math.floor(interval) + " days";
-//     }
-//     interval = seconds / 3600;
-//     if (interval > 1) {
-//         return Math.floor(interval) + " hours ago";
-//     }
-//     interval = seconds / 60;
-//     if (interval > 1) {
-//         return Math.floor(interval) + " minutes ago";
-//     }
-//     return Math.floor(seconds) + " seconds ago";
-// }
-
-
-displayComment();

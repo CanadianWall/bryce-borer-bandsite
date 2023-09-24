@@ -1,3 +1,11 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .hero {
   position: relative;
   width: 100%;
@@ -141,7 +149,7 @@
 }
 .gallery__img {
   margin: 16px;
-  margin-top: 0;
+  margin: 0 0 16px 16px;
   -o-object-fit: contain;
      object-fit: contain;
   filter: grayscale(1);
@@ -149,7 +157,7 @@
 }
 @media (min-width: 768px) {
   .gallery__img {
-    margin: 0;
+    margin: 0 0 16px 0;
   }
 }
 
@@ -172,7 +180,6 @@
   display: flex;
   flex-direction: column;
   margin: 0 1rem;
-  border-bottom: 1px solid #E1E1E1;
 }
 .comment-section--left {
   width: 100%;
@@ -237,6 +244,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   width: 88%;
+  margin-right: 16px;
 }
 .comment-card__top {
   display: flex;
@@ -247,6 +255,27 @@
 }
 .comment-card--posted {
   margin-top: 8px;
+}
+.comment-card__bottom {
+  display: flex;
+}
+.comment-card__likes {
+  width: 16px;
+  margin: 4px 0 0 0;
+}
+@media (min-width: 768px) {
+  .comment-card__likes {
+    margin: 2px 0 0 0;
+  }
+}
+.comment-card__likes-button {
+  margin: 0 0 8px 8px;
+  cursor: pointer;
+}
+.comment-card__delete-button {
+  margin-left: 36px;
+  margin: 0 0 8px 36px;
+  cursor: pointer;
 }
 
 .button {
@@ -273,6 +302,13 @@
 
 .button:hover {
   background-color: #000000;
+}
+
+.comment-card__likes-button:hover, .comment-card__delete-button:hover {
+  animation-duration: 1s;
+  animation-name: spin;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 
 input,
@@ -315,4 +351,8 @@ label {
 
 .inline {
   display: inline;
+}
+
+.comment-error {
+  border-color: #D22D2D;
 }/*# sourceMappingURL=bio.css.map */

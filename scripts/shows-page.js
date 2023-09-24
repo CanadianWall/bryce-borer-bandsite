@@ -1,147 +1,121 @@
-let btnId;
+// API Server
+let baseUrl = "https://project-1-api.herokuapp.com";
 
-const shows = [
-    {
-        date: 'Wed Dec 15 2021',
-        venue: 'Press Club',
-        location: "San Francisco, CA"
-    },
-    {
-        date: 'Fri Nov 26 2021',
-        venue: 'Moscow Center',
-        location: "San Francisco, CA"
-    },
-    {
-        date: 'Sat Nov 06 2021',
-        venue: 'Hyatt Agency',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: 'Fri Oct 15 2021',
-        venue: 'View Lounge',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: 'Tue Sept 21 2021',
-        venue: 'Pier 3 East ',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: 'Mon Sept 06 2021',
-        venue: 'Ronald Lane',
-        location: 'San Francisco, CA'
-    }
-];
+// let api_key = '?api_key=6943b8bd-d12b-46e7-8f57-c03dd24e34b5';
+let api_key = '?api_key=6943b8bd-d12b-46e7-8f57-c03dd24e34b5';
 
-function createShowCard(show, i) {
-    //initialize a card
-    const cardEl = document.createElement('article');
-    cardEl.classList.add('show');
-    cardEl.setAttribute('id', i);
+let showsEndpoint = "/showdates";
+let cardEl;
+let showIndex = 0;
 
-    const dateGroup = document.createElement('div');
-    dateGroup.classList.add('show__groups');
+const getShows = () => {
+    const myShowsEl = document.querySelector("#showsId");
+    myShowsEl.innerHTML = "";
+    showIndex = 0;
+    axios.get(`${baseUrl}${showsEndpoint}${api_key}`) //this give me back a promise
+        .then((result) => {
+            result.data.forEach((showTicket) => {
 
-    const dateHeading = document.createElement('h4'); // is a node
-    dateHeading.innerHTML = 'DATE';
-    dateHeading.classList.add('shows--heading');
+                //initialize a card
+                cardEl = document.createElement('article');
+                cardEl.classList.add('show');
+                cardEl.classList.add('default-show-color');
+                cardEl.setAttribute('id', 'card' + showIndex);
 
-    const dateEl = document.createElement('h4');
-    dateEl.innerText = show.date;
-    dateEl.classList.add('demi');
-    dateEl.classList.add('shows__item');
+                const dateGroup = document.createElement('div');
+                dateGroup.classList.add('show__groups');
 
-    const venueGroup = document.createElement('div');
-    venueGroup.classList.add('show__groups');
+                const dateHeading = document.createElement('h4'); // is a node
+                dateHeading.innerHTML = 'DATE';
+                dateHeading.classList.add('shows--heading');
 
-    const venueHeading = document.createElement('h4'); // is a node
-    venueHeading.innerHTML = 'VENUE';
-    venueHeading.classList.add('shows--heading');
+                const dateEl = document.createElement('h4');
+                dateEl.textContent = formatDate(showTicket.date);
+                dateEl.classList.add('demi');
+                dateEl.classList.add('shows__item');
 
-    const venueEl = document.createElement('h4');
-    venueEl.innerText = show.venue;
-    venueEl.classList.add('shows__item');
+                const venueGroup = document.createElement('div');
+                venueGroup.classList.add('show__groups');
 
-    const locationGroup = document.createElement('div');
-    locationGroup.classList.add('show__groups');
+                const venueHeading = document.createElement('h4'); // is a node
+                venueHeading.innerHTML = 'VENUE';
+                venueHeading.classList.add('shows--heading');
 
-    const locationHeading = document.createElement('h4'); // is a node
-    locationHeading.innerHTML = 'LOCATION';
-    locationHeading.classList.add('shows--heading');
+                const venueEl = document.createElement('h4');
+                venueEl.textContent = showTicket.place;
+                venueEl.classList.add('shows__item');
 
-    const locationEl = document.createElement('h4');
-    locationEl.innerText = show.location;
-    locationEl.classList.add('shows__item');
+                const locationGroup = document.createElement('div');
+                locationGroup.classList.add('show__groups');
 
-    buttonId = i+10;
-    const buttonEl = document.createElement('button');
-    buttonEl.innerText = 'BUY TICKETS';
-    buttonEl.classList.add('button--shows');
-    buttonEl.setAttribute('id', buttonId);
+                const locationHeading = document.createElement('h4'); // is a node
+                locationHeading.textContent = 'LOCATION';
+                locationHeading.classList.add('shows--heading');
 
-    if (screen.width < 768 || ((screen.width >= 768) && i === 5)) {
-        dateGroup.appendChild(dateHeading);
-        venueGroup.appendChild(venueHeading);
-        locationGroup.appendChild(locationHeading);
-    }
+                const locationEl = document.createElement('h4');
+                locationEl.textContent = showTicket.location;
+                locationEl.classList.add('shows__item');
 
-    dateGroup.appendChild(dateEl);
-    venueGroup.appendChild(venueEl);
-    locationGroup.appendChild(locationEl);
+                const buttonEl = document.createElement('button');
+                buttonEl.innerText = 'BUY TICKETS';
+                buttonEl.classList.add('button--shows');
+                buttonEl.setAttribute('id', 'bttn' + showIndex);
 
-    cardEl.appendChild(dateGroup);
-    cardEl.appendChild(venueGroup);
-    cardEl.appendChild(locationGroup);
-    cardEl.appendChild(buttonEl);
+                dateGroup.appendChild(dateHeading);
+                venueGroup.appendChild(venueHeading);
+                locationGroup.appendChild(locationHeading);
 
-    return cardEl;
+
+                dateGroup.appendChild(dateEl);
+                venueGroup.appendChild(venueEl);
+                locationGroup.appendChild(locationEl);
+
+                cardEl.appendChild(dateGroup);
+                cardEl.appendChild(venueGroup);
+                cardEl.appendChild(locationGroup);
+                cardEl.appendChild(buttonEl);
+                myShowsEl.appendChild(cardEl);
+                showIndex++;
+
+            })
+
+        })
+        .then(() => {
+            for (i = 0; i <= 5; i++) {
+                document.getElementById('card' + i).addEventListener('click', function (event) {
+                    selectedShow(event.target.id);
+                })
+                document.getElementById('bttn' + i).addEventListener('click', function (event) {
+                    selectedShow(event.target.id);
+                })
+            }
+        })
+        .catch((error) => console.log(error));
 }
 
-function displayShow() {
-    const myShowsEl = document.querySelector("#showsId");
-
-    // Clear the comments div first
-    myShowsEl.innerHTML = "";
-
-    // Outputs comments, chronologically
-    for (let i = shows.length - 1; i >= 0; i--) {
-        const card = createShowCard(shows[i], i);
-        myShowsEl.appendChild(card);
-    }
-
+//Converts the new date object to a string and removes the time
+function formatDate(date) {
+    const stringDate = new Date(date).toString();
+    const formattedDate = stringDate.slice(0, 15);
+    return formattedDate;
 }
 
 // this reverts the color to white on all rows, except darkens the "selected" row
-function selectedShow(activeShow){
-    console.log("active " + activeShow)
-    
-    //this statement converts the button id to the article (background) id
-    if (activeShow >=10){
-        activeShow -=10;
-        }
+function selectedShow(activeShow) {
+    let idNum = activeShow.split('')
 
-     for(i = 0; i<=5; i++){
-    document.getElementById(i).style.backgroundColor = "#FFFFFF";
-     }
-    document.getElementById(activeShow).style.backgroundColor = "#E1E1E1";
+    for (i = 0; i <= 5; i++) {
+        document.getElementById('card' + i).classList.remove('active-show-color');
+        document.getElementById('card' + i).classList.add('default-show-color');
+    }
+    document.getElementById('card' + idNum[4]).classList.add('active-show-color');
+    document.getElementById('card' + idNum[4]).classList.remove('default-show-color');
+
 }
-    
-
-
-displayShow();
 
 // Shows will be rerendered when the screen size changes
 window.addEventListener("resize", function (event) {
     location.reload();
 })
 
-//this listens for mouse clicks on the "selected" row on the show table
-for (i = 0; i<=5; i++){ 
-    document.getElementById(i).addEventListener('click', function(event){
-            selectedShow(event.target.id);
-    })
-    document.getElementById(i+10).addEventListener('click', function(event){
-            selectedShow(event.target.id);
-    })
-}
-
+getShows();

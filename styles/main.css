@@ -21,6 +21,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -195,7 +196,7 @@ ul {
   }
 }
 
-.main-header__links:hover, .main-header__title:hover {
+.main-header--text:hover, .main-header__title:hover {
   background-color: #000000;
   box-shadow: 0px 0px 8px 2px #FFFFFF;
   transition: 1s;
@@ -205,6 +206,11 @@ ul {
   background-color: #323232;
   color: #FFFFFF;
   padding-top: 24px;
+}
+@media (min-width: 1200px) {
+  .foot {
+    margin-top: 48px;
+  }
 }
 .foot__banner {
   display: flex;
@@ -313,6 +319,14 @@ ul {
   transition: 1s;
 }
 
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .hero {
   position: relative;
   width: 100%;
@@ -456,7 +470,7 @@ ul {
 }
 .gallery__img {
   margin: 16px;
-  margin-top: 0;
+  margin: 0 0 16px 16px;
   -o-object-fit: contain;
      object-fit: contain;
   filter: grayscale(1);
@@ -464,7 +478,7 @@ ul {
 }
 @media (min-width: 768px) {
   .gallery__img {
-    margin: 0;
+    margin: 0 0 16px 0;
   }
 }
 
@@ -487,7 +501,6 @@ ul {
   display: flex;
   flex-direction: column;
   margin: 0 1rem;
-  border-bottom: 1px solid #E1E1E1;
 }
 .comment-section--left {
   width: 100%;
@@ -552,6 +565,7 @@ ul {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 88%;
+  margin-right: 16px;
 }
 .comment-card__top {
   display: flex;
@@ -562,6 +576,27 @@ ul {
 }
 .comment-card--posted {
   margin-top: 8px;
+}
+.comment-card__bottom {
+  display: flex;
+}
+.comment-card__likes {
+  width: 16px;
+  margin: 4px 0 0 0;
+}
+@media (min-width: 768px) {
+  .comment-card__likes {
+    margin: 2px 0 0 0;
+  }
+}
+.comment-card__likes-button {
+  margin: 0 0 8px 8px;
+  cursor: pointer;
+}
+.comment-card__delete-button {
+  margin-left: 36px;
+  margin: 0 0 8px 36px;
+  cursor: pointer;
 }
 
 .button {
@@ -588,6 +623,13 @@ ul {
 
 .button:hover {
   background-color: #000000;
+}
+
+.comment-card__likes-button:hover, .comment-card__delete-button:hover {
+  animation-duration: 1s;
+  animation-name: spin;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 
 input,
@@ -630,6 +672,10 @@ label {
 
 .inline {
   display: inline;
+}
+
+.comment-error {
+  border-color: #D22D2D;
 }
 
 .hero-show {
@@ -732,6 +778,24 @@ label {
     left: 10%;
   }
 }
+.shows__title__labels {
+  pointer-events: none;
+  display: none;
+}
+@media (min-width: 768px) {
+  .shows__title__labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 16px;
+  }
+}
+@media (min-width: 1200px) {
+  .shows__title__labels {
+    display: flex;
+    flex-direction: row;
+  }
+}
 .shows__wrapper {
   pointer-events: none;
 }
@@ -750,6 +814,11 @@ label {
   margin: 0 16px 8px 16px;
   padding-top: 16px;
 }
+@media (min-width: 768px) {
+  .shows--heading {
+    display: none;
+  }
+}
 .shows__item {
   margin: 0 16px 16px 16px;
   pointer-events: none;
@@ -764,12 +833,16 @@ label {
   pointer-events: none;
 }
 
+#button-buffer {
+  opacity: 0;
+}
+
 .show {
-  background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
   position: relative;
   pointer-events: auto;
+  width: 101%;
 }
 @media (min-width: 768px) {
   .show {
@@ -781,6 +854,7 @@ label {
   display: flex;
   flex-direction: column;
   pointer-events: none;
+  width: 20%;
 }
 @media (min-width: 768px) {
   .show__groups {
@@ -788,6 +862,14 @@ label {
     align-items: left;
     justify-content: center;
   }
+}
+
+.default-show-color {
+  background-color: #FFFFFF;
+}
+
+.active-show-color {
+  background-color: #E1E1E1;
 }
 
 .show:after {
