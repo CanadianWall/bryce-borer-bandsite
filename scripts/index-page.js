@@ -5,7 +5,7 @@ let baseUrl = "https://project-1-api.herokuapp.com";
 let api_key = '?api_key=6943b8bd-d12b-46e7-8f57-c03dd24e34b5';
 let commentsEndpoint = "/comments";
 let objectIndex = 0; // for sorting comments
-let theData;
+let commentData;
 
 const getComments = () => {
     const myCommentsEl = document.querySelector("#posted--comment");
@@ -13,8 +13,7 @@ const getComments = () => {
     axios.get(`${baseUrl}${commentsEndpoint}${api_key}`) //this give me back a promise
         .then((result) => {
             objectIndex = 0; // for sorting comments
-            console.log(result.data)
-            theData = result;
+            commentData = result;
             result.data.forEach((user) => {
                 const wrapperEl = document.createElement('div');
                 wrapperEl.classList.add('comments--wrapper');
@@ -48,7 +47,6 @@ const getComments = () => {
                 const likeButtonEl = document.createElement('img');
                 likeButtonEl.src = "./assets/icons/SVG/Icon-like.svg";
                 likeButtonEl.classList.add('comment-card__likes-button');
-                // likeButtonEl.setAttribute('id', result.data[objectIndex].id);
                 likeButtonEl.setAttribute('id', user.id);
 
                 const deleteEl = document.createElement('img');
@@ -83,21 +81,15 @@ const getComments = () => {
                 } else {
                     myCommentsEl.appendChild(wrapperEl);
                 }
-                // likeButtonEl.addEventListener('click', function (event) {
-                //     console.log(event.target.id)
-                //     likeClick(event.target.id);
-
                 objectIndex++;
             })
         })
         .then(() => {
-            theData.data.forEach((user) => {
+            commentData.data.forEach((user) => {
                 document.getElementById(user.id).addEventListener('click', function (event) {
-                    // console.log(event.target.id)
                     likeClick(event.target.id);
                 })
                 document.getElementById('d'+user.id).addEventListener('click', function (event) {
-                    // console.log(event.target.id)
                     deleteComment(event.target.id);
                 })
             })

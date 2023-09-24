@@ -21,6 +21,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -456,7 +457,7 @@ ul {
 }
 .gallery__img {
   margin: 16px;
-  margin-top: 0;
+  margin: 0 0 16px 16px;
   -o-object-fit: contain;
      object-fit: contain;
   filter: grayscale(1);
@@ -464,7 +465,7 @@ ul {
 }
 @media (min-width: 768px) {
   .gallery__img {
-    margin: 0;
+    margin: 0 0 16px 0;
   }
 }
 
@@ -487,7 +488,6 @@ ul {
   display: flex;
   flex-direction: column;
   margin: 0 1rem;
-  border-bottom: 1px solid #E1E1E1;
 }
 .comment-section--left {
   width: 100%;
@@ -552,6 +552,7 @@ ul {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 88%;
+  margin-right: 16px;
 }
 .comment-card__top {
   display: flex;
