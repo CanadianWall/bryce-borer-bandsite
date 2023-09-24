@@ -162,6 +162,7 @@
   flex-direction: column;
   position: relative;
   pointer-events: auto;
+  width: 101%;
 }
 @media (min-width: 768px) {
   .show {

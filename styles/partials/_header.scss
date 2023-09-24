@@ -71,8 +71,14 @@
     }
 
 }
-.main-header__links:hover, .main-header__title:hover {
+.main-header--text:hover, .main-header__title:hover {
     background-color: $secondary-dark;
     box-shadow: 0px 0px 8px 2px $primary-light;
   transition: 1s; 
 }
+
+// .main-header__links:hover, .main-header__title:hover {
+//     background-color: $secondary-dark;
+//     box-shadow: 0px 0px 8px 2px $primary-light;
+//   transition: 1s; 
+// }

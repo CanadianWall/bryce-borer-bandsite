@@ -165,6 +165,7 @@
     flex-direction: column;
     position: relative;
     pointer-events: auto;
+    width: 101%;
 
     @include tablet {
         flex-direction: row;

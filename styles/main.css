@@ -196,7 +196,7 @@ ul {
   }
 }
 
-.main-header__links:hover, .main-header__title:hover {
+.main-header--text:hover, .main-header__title:hover {
   background-color: #000000;
   box-shadow: 0px 0px 8px 2px #FFFFFF;
   transition: 1s;
@@ -206,6 +206,11 @@ ul {
   background-color: #323232;
   color: #FFFFFF;
   padding-top: 24px;
+}
+@media (min-width: 1200px) {
+  .foot {
+    margin-top: 48px;
+  }
 }
 .foot__banner {
   display: flex;
@@ -314,6 +319,14 @@ ul {
   transition: 1s;
 }
 
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .hero {
   position: relative;
   width: 100%;
@@ -577,11 +590,13 @@ ul {
   }
 }
 .comment-card__likes-button {
-  margin: 0 0 8px 0;
+  margin: 0 0 8px 8px;
+  cursor: pointer;
 }
 .comment-card__delete-button {
   margin-left: 36px;
   margin: 0 0 8px 36px;
+  cursor: pointer;
 }
 
 .button {
@@ -610,20 +625,11 @@ ul {
   background-color: #000000;
 }
 
-.delete-button {
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  background-color: #323232;
-  color: #FFFFFF;
-  border-radius: 4px;
-  font-size: 1.5rem;
-  align-items: center;
-  margin: 16px auto;
-  width: 100%;
-  height: 40px;
-  display: flex;
-  justify-content: center;
+.comment-card__likes-button:hover, .comment-card__delete-button:hover {
+  animation-duration: 1s;
+  animation-name: spin;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 
 input,
@@ -836,6 +842,7 @@ label {
   flex-direction: column;
   position: relative;
   pointer-events: auto;
+  width: 101%;
 }
 @media (min-width: 768px) {
   .show {

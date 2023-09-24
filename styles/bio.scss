@@ -1,5 +1,6 @@
 @use './partials/variables' as *;
 @use './partials/mixins' as *;
+@use './partials/animations' as *;
 
 .hero {
     position: relative;
@@ -178,14 +179,12 @@
     display: flex;
     flex-direction: column;
     margin: 0 1rem;
-    // border-bottom: 1px solid $secondary-inactive;
 
     &--left {
         width: 100%;
     }
 
     @include tablet {
-
         align-items: flex-end;
     }
 }
@@ -272,12 +271,14 @@
     }
 
     &__likes-button {
-        margin: 0 0 8px 0;
+        margin: 0 0 8px 8px;
+        cursor: pointer; 
     }
 
     &__delete-button {
         margin-left: $tablet-margin;
         margin: 0 0 8px $tablet-margin;
+        cursor: pointer; 
     }
 }
 
@@ -307,20 +308,11 @@
     background-color: $secondary-dark;
 }
 
-.delete-button {
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    background-color: $primary-dark;
-    color: $primary-light;
-    border-radius: 4px;
-    font-size: 1.5rem;
-    align-items: center;
-    margin: $mobile-margin auto;
-    width: 100%;
-    height: 40px;
-    display: flex;
-    justify-content: center;
+.comment-card__likes-button:hover, .comment-card__delete-button:hover {
+  animation-duration: 1s;
+  animation-name: spin;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 
 input,
